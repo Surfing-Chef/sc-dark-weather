@@ -2,7 +2,7 @@
 A plugin for WordPress as a wrapper for Dark Sky weather service  
 ## changelog ##
 > Version: 1.2.0  
-> > Based on (this)[https://www.youtube.com/watch?v=SfTtwyEmImE&t=16s] tutorial by Derek Banas
+> > Based on (this)[http://www.newthinktank.com/2011/05/wordpress-plugin-howto/] tutorial by Derek Banas
 > > - sets up the basic structure using the social media links examples  
 
 > Version: 1.3.0  
