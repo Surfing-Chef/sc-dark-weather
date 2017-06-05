@@ -3,15 +3,20 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 ## changelog ##
 > Version: 1.2.0  
 > > Based on (this)[https://www.youtube.com/watch?v=SfTtwyEmImE&t=16s] tutorial by Derek Banas
-> > - sets up the basic structure using the social media links examples
+> > - sets up the basic structure using the social media links examples  
+
 > Version: 1.3.0  
 > > Adds options menu in the Dashboard  
 > > - still based on social media links examples  
+
 > Version: 1.4.0  
 > > Starts to tailor the plugin to Dark Sky, based on (sister repository)[https://github.com/Surfing-Chef/sc-weather]
+
 > > 1.4.1  
 > > > - implements Composer based page(s)  
+
 > > 1.4.2  
 > > > - copies code into plugin directory from (sister repository)[https://github.com/Surfing-Chef/sc-weather]  
+
 > Version: 1.5.0  
 > > Removes ties to the social media example  
