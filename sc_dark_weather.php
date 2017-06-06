@@ -72,7 +72,8 @@ plugins_url( 'images/YOUR_IMAGE.png' , __FILE__ );
 
 <?php
 // Sets up all of the default options for all the variables needed
-function sc_dark_weather_install(){
+function sc_dark_weather_install()
+{
 
   $sc_defaults_array = array( 'sc_title' => 'Follow Me', 'sc_facebook' => '', 'sc_twitter' =>'' );
 
@@ -83,7 +84,8 @@ function sc_dark_weather_install(){
 
 <?php
 // To create a widget you have to extend the WP_Widget class
-class sc_dark_weather extends WP_Widget {
+class sc_dark_weather extends WP_Widget
+{
 
   /**
 	* This constructor function initializes the widget
@@ -100,7 +102,8 @@ class sc_dark_weather extends WP_Widget {
 	*/
 
 	// Constructor
-	function sc_dark_weather() {
+	function sc_dark_weather()
+  {
 		$widget_options = array(
 			'classname' => 'sc_dark_weather',
 			'description' => __( 'Displays a Darksky weather feed' ),
@@ -127,24 +130,25 @@ class sc_dark_weather extends WP_Widget {
 	 * @param array $instance
    *
 	 */
-	function widget( $args, $instance ) {
+	function widget( $args, $instance )
+  {
     // Splits arguments out and makes them local variables. EXTR_SKIP
     // protects any already created local variables
 		extract( $args, EXTR_SKIP );
 
     // Here if a title is set use it. If not use the default title
-    $title = ( $instance['title'] ) ? $instance['title'] : 'Follow Me';
+    $sc_title = ( get_option( 'sc-title' ) ) ? get_option( 'sc-title' ) : 'Follow Me';
 
-		$facebook = ( $instance['facebook'] ) ? $instance['facebook'] : '';
+		$sc_facebook = ( get_option( 'sc-facebook' ) ) ? get_option( 'sc-facebook' ) : '';
 
-		$twitter = ( $instance['twitter'] ) ? $instance['twitter'] : '';
+		$sc_twitter = ( get_option( 'sc-twitter' ) ) ? get_option( 'sc-twitter' ) : '';
 
     // $before_widget, $after_widget, etc are used for theme compatibility
 
     ?>
 
 <?php echo $before_widget; ?>
-<?php echo $before_title . $title . $after_title; ?>
+<?php echo $before_title . $sc_title . $after_title; ?>
 
 <?php
     $sc_feed_icon = plugins_url( 'images/rss_logo.png' , __FILE__ );
@@ -172,14 +176,14 @@ class sc_dark_weather extends WP_Widget {
    * @param array $new_instance The new options
    * @param array $old_instance The previous options
    */
-  function update( $new_instance, $old_instance ) {
-
+  function update( $new_instance, $old_instance )
+  {
     $instance = $old_instance;
 
-		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['sc_title'] = strip_tags( $new_instance['sc_title'] );
 
-		$instance['facebook'] = strip_tags( $new_instance['facebook'] );
-		$instance['twitter'] = strip_tags( $new_instance['twitter'] );
+		$instance['sc_facebook'] = strip_tags( $new_instance['sc_facebook'] );
+		$instance['sc_twitter'] = strip_tags( $new_instance['sc_twitter'] );
 
 		return $instance;
   }
@@ -193,50 +197,73 @@ class sc_dark_weather extends WP_Widget {
    function form($instance)
    {
      // Set all of the default values for the widget
-     $defaults = array( 'title' => 'Follow Me', 'facebook' => '', 'twitter' => '' );
+     $defaults = array( 'sc_title' => 'Follow Me', 'sc_facebook' => '', 'sc_twitter' => '' );
 
      // Grab any widget values that have been saved and merge them into an
      // array with wp_parse_args
      $instance = wp_parse_args( (array) $instance, $defaults );
-     $title = $instance['title'];
-     $facebook = $instance['facebook'];
-     $twitter = $instance['twitter'];
+     $sc_title = $instance['sc_title'];
+     $sc_facebook = $instance['sc_facebook'];
+     $sc_twitter = $instance['sc_twitter'];
 
     ?>
 
     <!-- Create the form elements needed to set the widget values
     esc_attr() scrubs potentially harmful text -->
-    <p>Title: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
+    <p>Title: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_title' ); ?>" type="text" value="<?php echo esc_attr( $sc_title ); ?>" /></p>
 
-		<p>Facebook ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'facebook' ); ?>" type="text" value="<?php echo esc_attr( $facebook ); ?>" /></p>
+		<p>Facebook ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_facebook' ); ?>" type="text" value="<?php echo esc_attr( $sc_facebook ); ?>" /></p>
 
-		<p>Twitter ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'twitter' ); ?>" type="text" value="<?php echo esc_attr( $twitter ); ?>" /></p>
-  <?php
+		<p>Twitter ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_twitter' ); ?>" type="text" value="<?php echo esc_attr( $sc_twitter ); ?>" /></p>
+
+<?php
+
+    settings_fields( 'sc_dark_weather_vars' );
+
+    update_option( 'sc-title', $sc_title );
+    update_option( 'sc-facebook', $sc_facebook );
+    update_option( 'sc-twitter', $sc_twitter );
+
 	}
 
 }
+// End class sc_dark_weather creation
 
-function sc_dark_weather_init (){
+function sc_dark_weather_init ()
+{
   // Registers a new widget to be used in your Wordpress theme
   register_widget('sc_dark_weather');
 }
 
-function sc_dark_weather_create_menu (){
+function sc_register_options()
+{
+  // Creates the variable options needed for the plugin and settings page
+  // Allows access to widget options from any other function
+  register_setting( 'sc_dark_weather_vars', 'sc_title' );
+  register_setting( 'sc_dark_weather_vars', 'sc_facebook' );
+  register_setting( 'sc_dark_weather_vars', 'sc_twitter' );
+}
+
+function sc_dark_weather_create_menu ()
+{
   // add_menu_page creates a top level menu in the left sidebar
   // add_menu_page(titleOfPage, titleInSidebar, whoCanUseThis, __FILE__,
   // functionThisCalls, logo)
   // whoCanUseThis : manage_options means only admins can use this
   add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugin_url( 'images/ntt-sm-logo.png' )
   );
-} // End of the function sc_dark_weather_create_menu
+}
+// End of the function sc_dark_weather_create_menu
 
-function sc_dark_weather_create_submenu (){
+function sc_dark_weather_create_submenu ()
+{
   // add_options_page creates a submenu in the left sidebar under Settings
   // where options specifies desired location of settings button
   // see comments directly following function
   add_options_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings' )
   );
-} // End of the function sc_dark_weather_create_submenu
+}
+// End of the function sc_dark_weather_create_submenu
 
 /* You can also add submenus to the other menus. add_dashboard_page, add_posts_page, add_media_page, add_links_page, add_pages_page, add_comments_page, add_theme_page, add_plugins_page, add_users_page
 */
