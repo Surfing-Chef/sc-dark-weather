@@ -244,14 +244,41 @@ function sc_register_options()
   register_setting( 'sc_dark_weather_vars', 'sc_twitter' );
 }
 
+function sc_dark_weather_settings ()
+{
+  // Creates the settings page for the plugin
+  ?>
+
+  <div>
+    <h3><<?php _e( 'SC Darksky Weather Options', 'sc_dark_weather' ); ?></h3><br />
+
+    <form method="post" action="options.php">
+      <?php settings_fields( 'sc_dark_weather_vars' ); ?>
+
+      <?php _e('Title', 'sc_dark_weather_vars'); ?>
+      <input type="text" name="sc_title" value="<?php echo get_option('sc_title') ?>" /><br />
+
+      <?php _e('Twitter ID', 'sc_dark_weather_vars'); ?>
+      <input type="text" name="sc_twitter" value="<?php echo get_option('sc_twitter') ?>" /><br />
+
+      <?php _e('Facebook ID', 'sc_dark_weather_vars'); ?>
+      <input type="text" name="sc_facebook" value="<?php echo get_option('sc_facebook') ?>" /><br />
+
+      <input type="submit" value="<?php  _e( 'Submit', sc_dark_weather) ?>">
+    </form>
+  </div>
+
+  <?php
+
+}
+
 function sc_dark_weather_create_menu ()
 {
   // add_menu_page creates a top level menu in the left sidebar
   // add_menu_page(titleOfPage, titleInSidebar, whoCanUseThis, __FILE__,
   // functionThisCalls, logo)
   // whoCanUseThis : manage_options means only admins can use this
-  add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugin_url( 'images/ntt-sm-logo.png' )
-  );
+  add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugins_url( 'images/ntt-sm-logo.png' ) );
 }
 // End of the function sc_dark_weather_create_menu
 
@@ -260,8 +287,7 @@ function sc_dark_weather_create_submenu ()
   // add_options_page creates a submenu in the left sidebar under Settings
   // where options specifies desired location of settings button
   // see comments directly following function
-  add_options_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings' )
-  );
+  add_options_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings' );
 }
 // End of the function sc_dark_weather_create_submenu
 
@@ -271,5 +297,15 @@ function sc_dark_weather_create_submenu ()
 // Attaches a rule that tells wordpress to call my function when widgets are
 // initialized
 add_action('widgets_init', 'sc_dark_weather_init');
+
+// Creates a top level menu in your dashboards left sidebar
+add_action( 'admin_menu', 'sc_dark_weather_create_menu' );
+
+// Create a submenu item under settings
+add_action( 'admin_menu', 'sc_dark_weather_create_submenu' );
+
+// Call the function that we create all of the options for the plugin being
+// title, facebook and twitter
+add_action( 'admin_init', 'sc_register_options' );
 
 ?>
