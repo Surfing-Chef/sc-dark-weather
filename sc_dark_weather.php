@@ -221,6 +221,26 @@ function sc_dark_weather_init (){
   register_widget('sc_dark_weather');
 }
 
+function sc_dark_weather_create_menu (){
+  // add_menu_page creates a top level menu in the left sidebar
+  // add_menu_page(titleOfPage, titleInSidebar, whoCanUseThis, __FILE__,
+  // functionThisCalls, logo)
+  // whoCanUseThis : manage_options means only admins can use this
+  add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugin_url( 'images/ntt-sm-logo.png' )
+  );
+} // End of the function sc_dark_weather_create_menu
+
+function sc_dark_weather_create_submenu (){
+  // add_options_page creates a submenu in the left sidebar under Settings
+  // where options specifies desired location of settings button
+  // see comments directly following function
+  add_options_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings' )
+  );
+} // End of the function sc_dark_weather_create_submenu
+
+/* You can also add submenus to the other menus. add_dashboard_page, add_posts_page, add_media_page, add_links_page, add_pages_page, add_comments_page, add_theme_page, add_plugins_page, add_users_page
+*/
+
 // Attaches a rule that tells wordpress to call my function when widgets are
 // initialized
 add_action('widgets_init', 'sc_dark_weather_init');
