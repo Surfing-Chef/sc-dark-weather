@@ -71,6 +71,17 @@ plugins_url( 'images/YOUR_IMAGE.png' , __FILE__ );
 ?>
 
 <?php
+// Sets up all of the default options for all the variables needed
+function sc_dark_weather_install(){
+
+  $sc_defaults_array = array( 'sc_title' => 'Follow Me', 'sc_facebook' => '', 'sc_twitter' =>'' );
+
+  update_option( 'sc_defaults', $sc_defaults_array );
+
+}
+?>
+
+<?php
 // To create a widget you have to extend the WP_Widget class
 class sc_dark_weather extends WP_Widget {
 
