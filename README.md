@@ -8,7 +8,10 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 > > - sets up the basic structure using the social media links examples  
 
 > Version: 1.3.0  
-> > Adds options menu in the Dashboard  
+> > Based on (this)[http://www.newthinktank.com/2011/05/wordpress-plugin-howto-pt-2/] tutorial by Derek Banas
+> > Adds both an option menu and an option sub-menu linking to an options page for the plugin
+> > Use `register_settings()` function to set widget options
+> > Create install script that sets all default options for plugin usage
 > > - still based on social media links examples  
 
 > Version: 1.4.0  
