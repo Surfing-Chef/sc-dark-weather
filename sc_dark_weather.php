@@ -294,6 +294,44 @@ function sc_dark_weather_create_submenu ()
 /* You can also add submenus to the other menus. add_dashboard_page, add_posts_page, add_media_page, add_links_page, add_pages_page, add_comments_page, add_theme_page, add_plugins_page, add_users_page
 */
 
+// Create a shortcode capability for the plugin
+function sc_dark_weather_sc( $args, $content=null )
+{
+  // Splits arguments out and makes them local variables.
+  extract(shortcode_atts(array(
+    "sc_twitter"=>'surfing_chef',
+    "sc_facebook"=>'surfing_chef' ), $atts));
+
+  // Assigns the location of the social network logos
+  // They are located in the plugins folder in an images folder
+  $sc_feed_icon = plugins_url( 'images/rss_logo.png', __FILE__ );
+  $sc_facebook_icon = plugins_url( 'images/facebook_logo.png', __FILE__ );
+  $sc_twitter_icon = plugins_url( 'images/rss_twitter.png', __FILE__ );
+
+  /* Saves the location of the icons and attaches the links to the websites to them. */
+  $sc_dark_weather_content = '<a href="';
+  $sc_dark_weather_content .= get_blog_info( 'rss2_url' );
+  $sc_dark_weather_content .= '"><img src="';
+  $sc_dark_weather_content .= $sc_feed_icon;
+  $sc_dark_weather_content .='" height="50px" width="50px"></a>';
+
+  $sc_dark_weather_content = '<a href="';
+  $sc_dark_weather_content .= $sc_facebook;
+  $sc_dark_weather_content .= '"><img src="';
+  $sc_dark_weather_content .= $sc_facebook_icon;
+  $sc_dark_weather_content .='" height="50px" width="50px"></a>';
+
+  $sc_dark_weather_content = '<a href="';
+  $sc_dark_weather_content .= $sc_twitter;
+  $sc_dark_weather_content .= '"><img src="';
+  $sc_dark_weather_content .= $sc_twitter_icon;
+  $sc_dark_weather_content .='" height="50px" width="50px"></a>';
+
+  // Return all of the above for printing in the browser
+  return $sc_dark_weather_content;
+}
+// End of the function sc_dark_weather_sc
+
 // Attaches a rule that tells wordpress to call my function when widgets are
 // initialized
 add_action('widgets_init', 'sc_dark_weather_init');
@@ -308,4 +346,6 @@ add_action( 'admin_menu', 'sc_dark_weather_create_submenu' );
 // title, facebook and twitter
 add_action( 'admin_init', 'sc_register_options' );
 
+// Allows this plugin to be used with a shortcode
+add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
 ?>
