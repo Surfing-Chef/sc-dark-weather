@@ -315,13 +315,13 @@ function sc_dark_weather_sc( $args, $content=null )
   $sc_dark_weather_content .= $sc_feed_icon;
   $sc_dark_weather_content .='" height="50px" width="50px"></a>';
 
-  $sc_dark_weather_content = '<a href="';
+  $sc_dark_weather_content .= '<a href="';
   $sc_dark_weather_content .= $sc_facebook;
   $sc_dark_weather_content .= '"><img src="';
   $sc_dark_weather_content .= $sc_facebook_icon;
   $sc_dark_weather_content .='" height="50px" width="50px"></a>';
 
-  $sc_dark_weather_content = '<a href="';
+  $sc_dark_weather_content .= '<a href="';
   $sc_dark_weather_content .= $sc_twitter;
   $sc_dark_weather_content .= '"><img src="';
   $sc_dark_weather_content .= $sc_twitter_icon;
