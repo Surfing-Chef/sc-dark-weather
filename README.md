@@ -13,13 +13,12 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 > > Use `register_setting()` function to set widget options   
 > > Create install script that sets all default options for plugin usage
 > > 1.3.1
-> > > Create new widget area in sidebar to test and experiment with example
+> > > Use an existing widget area in sidebar to test and experiment with example
 > > >   
 
 > Version: 1.4.0  
 > > Starts to tailor the plugin to Dark Sky, based on (sister repository)[https://github.com/Surfing-Chef/sc-weather]
-> > Adds new weather widget area to admin
-> > Adds new widget area in callout in header  
+> > Creates shortcode capability
 
 > Version: 1.5.0  
 > > Starts to tailor the plugin to Dark Sky, based on (sister repository)[https://github.com/Surfing-Chef/sc-weather]   
