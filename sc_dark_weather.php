@@ -80,10 +80,11 @@ function sc_dark_weather_install()
   update_option( 'sc_defaults', $sc_defaults_array );
 
 }
+// END of function: sc_dark_weather_install
 ?>
 
 <?php
-// To create a widget you have to extend the WP_Widget class
+// Create a widget by extending the WP_Widget class
 class sc_dark_weather extends WP_Widget
 {
 
@@ -101,7 +102,7 @@ class sc_dark_weather extends WP_Widget
   *
 	*/
 
-	// Constructor
+	// Constructor initializes the widget
 	function sc_dark_weather()
   {
 		$widget_options = array(
@@ -110,6 +111,7 @@ class sc_dark_weather extends WP_Widget
 		);
 		parent::WP_Widget( 'sc_dark_weather', 'Darksky Weather Display', $widget_options );
 	}
+  // END of function: sc_dark_weather
 
 	/**
 	 * Outputs the content of the widget
@@ -130,7 +132,9 @@ class sc_dark_weather extends WP_Widget
 	 * @param array $instance
    *
 	 */
-	function widget( $args, $instance )
+
+   //Output the content of the widget
+  function widget( $args, $instance )
   {
     // Splits arguments out and makes them local variables. EXTR_SKIP
     // protects any already created local variables
@@ -167,6 +171,8 @@ class sc_dark_weather extends WP_Widget
 
 <?php
 	}
+  // END of function widget( $args, $instance )
+
 
   /**
    * Processing widget options on save
@@ -176,6 +182,8 @@ class sc_dark_weather extends WP_Widget
    * @param array $new_instance The new options
    * @param array $old_instance The previous options
    */
+
+   // Process widget options on save
   function update( $new_instance, $old_instance )
   {
     $instance = $old_instance;
@@ -187,24 +195,26 @@ class sc_dark_weather extends WP_Widget
 
 		return $instance;
   }
-
+  // END of function update( $new_instance, $old_instance )
 
 	/**
 	 * Displays options in the widget admin section of site
 	 *
 	 * @param array $instance The widget options
-	 */
-   function form($instance)
-   {
-     // Set all of the default values for the widget
-     $defaults = array( 'sc_title' => 'Follow Me', 'sc_facebook' => '', 'sc_twitter' => '' );
+	*/
 
-     // Grab any widget values that have been saved and merge them into an
-     // array with wp_parse_args
-     $instance = wp_parse_args( (array) $instance, $defaults );
-     $sc_title = $instance['sc_title'];
-     $sc_facebook = $instance['sc_facebook'];
-     $sc_twitter = $instance['sc_twitter'];
+  //Displays options in the widget admin section
+  function form($instance)
+  {
+    // Set all of the default values for the widget
+    $defaults = array( 'sc_title' => 'Follow Me', 'sc_facebook' => '', 'sc_twitter' => '' );
+
+    // Grab any widget values that have been saved and merge them into an
+    // array with wp_parse_args
+    $instance = wp_parse_args( (array) $instance, $defaults );
+    $sc_title = $instance['sc_title'];
+    $sc_facebook = $instance['sc_facebook'];
+    $sc_twitter = $instance['sc_twitter'];
 
     ?>
 
@@ -212,9 +222,9 @@ class sc_dark_weather extends WP_Widget
     esc_attr() scrubs potentially harmful text -->
     <p>Title: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_title' ); ?>" type="text" value="<?php echo esc_attr( $sc_title ); ?>" /></p>
 
-		<p>Facebook ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_facebook' ); ?>" type="text" value="<?php echo esc_attr( $sc_facebook ); ?>" /></p>
+    <p>Facebook ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_facebook' ); ?>" type="text" value="<?php echo esc_attr( $sc_facebook ); ?>" /></p>
 
-		<p>Twitter ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_twitter' ); ?>" type="text" value="<?php echo esc_attr( $sc_twitter ); ?>" /></p>
+    <p>Twitter ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_twitter' ); ?>" type="text" value="<?php echo esc_attr( $sc_twitter ); ?>" /></p>
 
 <?php
 
@@ -225,28 +235,31 @@ class sc_dark_weather extends WP_Widget
     update_option( 'sc-twitter', $sc_twitter );
 
 	}
+  //END of function form($instance)
 
 }
 // End class sc_dark_weather creation
 
+// Register a new widget to be used in a theme
 function sc_dark_weather_init ()
 {
-  // Registers a new widget to be used in your Wordpress theme
   register_widget('sc_dark_weather');
 }
+// END of function sc_dark_weather_init ()
 
+// Create the variable optionss needed for the plugin and settings page
 function sc_register_options()
 {
-  // Creates the variable options needed for the plugin and settings page
   // Allows access to widget options from any other function
   register_setting( 'sc_dark_weather_vars', 'sc_title' );
   register_setting( 'sc_dark_weather_vars', 'sc_facebook' );
   register_setting( 'sc_dark_weather_vars', 'sc_twitter' );
 }
+// END of function sc_register_options()
 
+// Create the settings page for the plugin
 function sc_dark_weather_settings ()
 {
-  // Creates the settings page for the plugin
   ?>
 
   <div>
@@ -271,7 +284,9 @@ function sc_dark_weather_settings ()
   <?php
 
 }
+// END function sc_dark_weather_settings ()
 
+// Create a top-level menu item in the left sidebar
 function sc_dark_weather_create_menu ()
 {
   // add_menu_page creates a top level menu in the left sidebar
@@ -280,8 +295,9 @@ function sc_dark_weather_create_menu ()
   // whoCanUseThis : manage_options means only admins can use this
   add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugins_url( 'images/ntt-sm-logo.png' ) );
 }
-// End of the function sc_dark_weather_create_menu
+// End of function sc_dark_weather_create_menu()
 
+// Creates a submenu in the left sidebar under Settings
 function sc_dark_weather_create_submenu ()
 {
   // add_options_page creates a submenu in the left sidebar under Settings
@@ -289,7 +305,7 @@ function sc_dark_weather_create_submenu ()
   // see comments directly following function
   add_options_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings' );
 }
-// End of the function sc_dark_weather_create_submenu
+// End of function sc_dark_weather_create_submenu()
 
 /* You can also add submenus to the other menus. add_dashboard_page, add_posts_page, add_media_page, add_links_page, add_pages_page, add_comments_page, add_theme_page, add_plugins_page, add_users_page
 */
