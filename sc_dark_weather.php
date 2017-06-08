@@ -322,22 +322,24 @@ function sc_dark_weather_sc( $args, $content=null )
   // They are located in the plugins folder in an images folder
   $sc_feed_icon = plugins_url( 'images/rss_logo.png', __FILE__ );
   $sc_facebook_icon = plugins_url( 'images/facebook_logo.png', __FILE__ );
-  $sc_twitter_icon = plugins_url( 'images/rss_twitter.png', __FILE__ );
+  $sc_twitter_icon = plugins_url( 'images/twitter_logo.png', __FILE__ );
 
   /* Saves the location of the icons and attaches the links to the websites to them. */
   $sc_dark_weather_content = '<a href="';
-  $sc_dark_weather_content .= get_blog_info( 'rss2_url' );
+  $sc_dark_weather_content .= get_bloginfo( 'rss2_url' );
   $sc_dark_weather_content .= '"><img src="';
   $sc_dark_weather_content .= $sc_feed_icon;
   $sc_dark_weather_content .='" height="50px" width="50px"></a>';
 
   $sc_dark_weather_content .= '<a href="';
+  $sc_dark_weather_content .= "http://www.facebook.com/";
   $sc_dark_weather_content .= $sc_facebook;
   $sc_dark_weather_content .= '"><img src="';
   $sc_dark_weather_content .= $sc_facebook_icon;
   $sc_dark_weather_content .='" height="50px" width="50px"></a>';
 
   $sc_dark_weather_content .= '<a href="';
+  $sc_dark_weather_content .= "http://www.twitter.com/";
   $sc_dark_weather_content .= $sc_twitter;
   $sc_dark_weather_content .= '"><img src="';
   $sc_dark_weather_content .= $sc_twitter_icon;
