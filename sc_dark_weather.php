@@ -133,7 +133,7 @@ class sc_dark_weather extends WP_Widget
    *
 	 */
 
-   //Output the content of the widget
+   // Output the content of the widget
   function widget( $args, $instance )
   {
     // Splits arguments out and makes them local variables. EXTR_SKIP
