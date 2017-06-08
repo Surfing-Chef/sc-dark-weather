@@ -18,7 +18,8 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.4.0  
 > > Starts to tailor the plugin to Dark Sky, based on (sister repository)[https://github.com/Surfing-Chef/sc-weather]
-> > Creates shortcode capability
+> > Create menu item for options page  
+> > Create options page
 
 > Version: 1.5.0  
 > > Starts to tailor the plugin to Dark Sky, based on (sister repository)[https://github.com/Surfing-Chef/sc-weather]   
