@@ -255,8 +255,9 @@ function sc_register_options()
 {
   // Allows access to widget options from any other function
   register_setting( 'sc_dark_weather_vars', 'sc_title' );
-  register_setting( 'sc_dark_weather_vars', 'sc_facebook' );
-  register_setting( 'sc_dark_weather_vars', 'sc_twitter' );
+  register_setting( 'sc_dark_weather_vars', 'sc_api' );
+  register_setting( 'sc_dark_weather_vars', 'sc_longitude' );
+  register_setting( 'sc_dark_weather_vars', 'sc_latitude' );
 }
 // END of function sc_register_options()
 
