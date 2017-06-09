@@ -14,10 +14,7 @@ Text Domain: sc-dark-weather
 
 <?php
 // Exit if accessed directly
-if ( ! defined( ABSPATH ) )
-{
-  exit;
-}
+defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 ?>
 
 <?php
