@@ -335,7 +335,6 @@ function sc_dark_weather_sc ( $atts )
     $sc_display .=  "<span>Longitude loaded: " . $atts['sc_longitude'] . "</span><br />";
     $sc_display .=  "<span>Latitude:  loaded: " . $atts['sc_latitude'] . "</span><br />";
 
-
   return   $sc_display;
 
 }
