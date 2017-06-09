@@ -3,9 +3,6 @@
 Description: Get Darksky data and write to forecast.json
 */
 
-// WordPress check to deny direct access to the file
-//defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
-
 // API
 require_once 'api.php';
 
