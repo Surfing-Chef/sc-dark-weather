@@ -222,17 +222,20 @@ class sc_dark_weather extends WP_Widget
     esc_attr() scrubs potentially harmful text -->
     <p>Title: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_title' ); ?>" type="text" value="<?php echo esc_attr( $sc_title ); ?>" /></p>
 
-    <p>Facebook ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_facebook' ); ?>" type="text" value="<?php echo esc_attr( $sc_facebook ); ?>" /></p>
+    <p>API Token: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_api' ); ?>" type="text" value="<?php echo esc_attr( $sc_api ); ?>" /></p>
 
-    <p>Twitter ID: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_twitter' ); ?>" type="text" value="<?php echo esc_attr( $sc_twitter ); ?>" /></p>
+    <p>Longitude: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_longitude' ); ?>" type="text" value="<?php echo esc_attr( $sc_longitude ); ?>" /></p>
+
+    <p>Latitude: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_latitude' ); ?>" type="text" value="<?php echo esc_attr( $sc_latitude ); ?>" /></p>
 
 <?php
 
     settings_fields( 'sc_dark_weather_vars' );
 
-    update_option( 'sc-title', $sc_title );
-    update_option( 'sc-facebook', $sc_facebook );
-    update_option( 'sc-twitter', $sc_twitter );
+    update_option( 'sc_title', $sc_title );
+    update_option( 'sc_api', $sc_api );
+    update_option( 'sc_longitude', $sc_longitude );
+    update_option( 'sc_latitude', $sc_latitude );
 
 	}
   //END of function form($instance)
