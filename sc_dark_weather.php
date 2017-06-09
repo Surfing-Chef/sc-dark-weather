@@ -188,9 +188,9 @@ class sc_dark_weather extends WP_Widget
     $instance = $old_instance;
 
 		$instance['sc_title'] = strip_tags( $new_instance['sc_title'] );
-
-		$instance['sc_facebook'] = strip_tags( $new_instance['sc_facebook'] );
-		$instance['sc_twitter'] = strip_tags( $new_instance['sc_twitter'] );
+		$instance['sc_api'] = strip_tags( $new_instance['sc_api'] );
+		$instance['sc_longitude'] = strip_tags( $new_instance['sc_longitude'] );
+    $instance['sc_latitude'] = strip_tags( $new_instance['sc_latitude'] );
 
 		return $instance;
   }
@@ -202,18 +202,19 @@ class sc_dark_weather extends WP_Widget
 	 * @param array $instance The widget options
 	*/
 
-  //Displays options in the widget admin section
+  // Displays options in the widget admin section
   function form($instance)
   {
     // Set all of the default values for the widget
-    $defaults = array( 'sc_title' => 'Follow Me', 'sc_facebook' => '', 'sc_twitter' => '' );
+    $defaults = array( 'sc_title' => 'SC Darksky Weather Options', 'sc_api' => '', 'sc_longitude' => '', 'sc_latitude' => '' );
 
     // Grab any widget values that have been saved and merge them into an
     // array with wp_parse_args
     $instance = wp_parse_args( (array) $instance, $defaults );
     $sc_title = $instance['sc_title'];
-    $sc_facebook = $instance['sc_facebook'];
-    $sc_twitter = $instance['sc_twitter'];
+    $sc_api = $instance['sc_api'];
+    $sc_longitude = $instance['sc_longitude'];
+    $sc_latitude = $instance['sc_latitude'];
 
     ?>
 
