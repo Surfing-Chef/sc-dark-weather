@@ -141,11 +141,14 @@ class sc_dark_weather extends WP_Widget
 		extract( $args, EXTR_SKIP );
 
     // Here if a title is set use it. If not use the default title
-    $sc_title = ( get_option( 'sc-title' ) ) ? get_option( 'sc-title' ) : 'Follow Me';
+    $sc_title = ( get_option( 'sc_title' ) ) ? get_option( 'sc_title' ) : '';
 
-		$sc_facebook = ( get_option( 'sc-facebook' ) ) ? get_option( 'sc-facebook' ) : '';
+		$sc_api = ( get_option( 'sc_api' ) ) ? get_option( 'sc_api' ) : '';
 
-		$sc_twitter = ( get_option( 'sc-twitter' ) ) ? get_option( 'sc-twitter' ) : '';
+		$sc_longitude = ( get_option( 'sc_longitude' ) ) ? get_option( 'sc_longitude' ) : '';
+
+    $sc_latitude = ( get_option( 'sc_latitude' ) ) ? get_option( 'sc_latitude' ) : '';
+
 
     // $before_widget, $after_widget, etc are used for theme compatibility
 
