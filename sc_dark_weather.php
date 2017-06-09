@@ -158,17 +158,13 @@ class sc_dark_weather extends WP_Widget
 <?php echo $before_title . $sc_title . $after_title; ?>
 
 <?php
-    $sc_feed_icon = plugins_url( 'images/rss_logo.png' , __FILE__ );
-    $sc_facebook_icon = plugins_url( 'images/facebook_logo.png' , __FILE__ );
-    $sc_twitter_icon = plugins_url( 'images/twitter_logo.png' , __FILE__ );
-    ?>
+      // php
+      ?>
 
-    <!-- Prints out the icons and attaches the links to the websites to them -->
-    <a href="<?php get_bloginfo( 'rss2_url' ); ?>"><img src="<?php echo $sc_feed_icon; ?>" height="50px" width="50px"></a>
-
-    <a href="http://www.twitter.com/<?php echo $instance['sc_twitter']; ?>"><img src="<?php echo $sc_twitter_icon; ?>" height="50px" width="50px"></a>
-
-		<a href="http://www.facebook.com/<?php echo $instance['sc_facebook']; ?>"><img src="<?php echo $sc_facebook_icon; ?>" height="50px" width="50px"></a>
+  <h3><?php echo $sc_title; ?></h3>
+  <span><?php echo $sc_api; ?></span><br />
+  <span><?php echo $sc_longitude; ?></span><br />
+  <span><?php echo $sc_latitude; ?></span><br />
 
 <?php echo $after_widget; ?>
 
