@@ -356,5 +356,5 @@ add_action( 'admin_menu', 'sc_dark_weather_create_menu' );
 add_action( 'admin_init', 'sc_register_options' );
 
 // Allows this plugin to be used with a shortcode
-//add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
+add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
 ?>
