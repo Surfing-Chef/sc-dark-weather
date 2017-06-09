@@ -297,60 +297,36 @@ function sc_dark_weather_create_menu ()
   // add_menu_page(titleOfPage, titleInSidebar, whoCanUseThis, __FILE__,
   // functionThisCalls, logo)
   // whoCanUseThis : manage_options means only admins can use this
-  add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugins_url( 'images/ntt-sm-logo.png' ) );
+  add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugins_url( 'images/sc-dark-weather-sm-logo.png', __FILE__ ) );
 }
 // End of function sc_dark_weather_create_menu()
 
 // Creates a submenu in the left sidebar under Settings
-function sc_dark_weather_create_submenu ()
-{
-  // add_options_page creates a submenu in the left sidebar under Settings
-  // where options specifies desired location of settings button
-  // see comments directly following function
-  add_options_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings' );
-}
+// function sc_dark_weather_create_submenu ()
+// {
+//   // add_options_page creates a submenu in the left sidebar under Settings
+//   // where options specifies desired location of settings button
+//   // see comments directly following function
+//   add_options_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings' );
+// }
 // End of function sc_dark_weather_create_submenu()
 
 /* You can also add submenus to the other menus. add_dashboard_page, add_posts_page, add_media_page, add_links_page, add_pages_page, add_comments_page, add_theme_page, add_plugins_page, add_users_page
 */
 
 // Create a shortcode capability for the plugin
-function sc_dark_weather_sc( $args, $content=null )
+function sc_dark_weather_sc ( $atts )
 {
   // Splits arguments out and makes them local variables.
-  extract(shortcode_atts(array(
-    "sc_twitter"=>'surfing_chef',
-    "sc_facebook"=>'surfing_chef' ), $atts));
+  $atts = shortcode_atts(
+    array(
+      "sc_api"=>get_option('sc_api'),
+      "sc_longitude"=>get_option('sc_longitude'),
+      "sc_latitude"=>get_option('sc_latitude')
+    ), $atts, 'scdarkweather');
 
-  // Assigns the location of the social network logos
-  // They are located in the plugins folder in an images folder
-  $sc_feed_icon = plugins_url( 'images/rss_logo.png', __FILE__ );
-  $sc_facebook_icon = plugins_url( 'images/facebook_logo.png', __FILE__ );
-  $sc_twitter_icon = plugins_url( 'images/twitter_logo.png', __FILE__ );
+  return get_option('sc_api');
 
-  /* Saves the location of the icons and attaches the links to the websites to them. */
-  $sc_dark_weather_content = '<a href="';
-  $sc_dark_weather_content .= get_bloginfo( 'rss2_url' );
-  $sc_dark_weather_content .= '"><img src="';
-  $sc_dark_weather_content .= $sc_feed_icon;
-  $sc_dark_weather_content .='" height="50px" width="50px"></a>';
-
-  $sc_dark_weather_content .= '<a href="';
-  $sc_dark_weather_content .= "http://www.facebook.com/";
-  $sc_dark_weather_content .= $sc_facebook;
-  $sc_dark_weather_content .= '"><img src="';
-  $sc_dark_weather_content .= $sc_facebook_icon;
-  $sc_dark_weather_content .='" height="50px" width="50px"></a>';
-
-  $sc_dark_weather_content .= '<a href="';
-  $sc_dark_weather_content .= "http://www.twitter.com/";
-  $sc_dark_weather_content .= $sc_twitter;
-  $sc_dark_weather_content .= '"><img src="';
-  $sc_dark_weather_content .= $sc_twitter_icon;
-  $sc_dark_weather_content .='" height="50px" width="50px"></a>';
-
-  // Return all of the above for printing in the browser
-  return $sc_dark_weather_content;
 }
 // End of the function sc_dark_weather_sc
 
@@ -362,7 +338,7 @@ add_action('widgets_init', 'sc_dark_weather_init');
 add_action( 'admin_menu', 'sc_dark_weather_create_menu' );
 
 // Create a submenu item under settings
-add_action( 'admin_menu', 'sc_dark_weather_create_submenu' );
+// add_action( 'admin_menu', 'sc_dark_weather_create_submenu' );
 
 // Call the function that we create all of the options for the plugin being
 // title, facebook and twitter
