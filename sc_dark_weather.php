@@ -161,10 +161,10 @@ class sc_dark_weather extends WP_Widget
       // php
       ?>
 
-  <h3><?php echo $sc_title; ?></h3>
-  <span><?php echo $sc_api; ?></span><br />
-  <span><?php echo $sc_longitude; ?></span><br />
-  <span><?php echo $sc_latitude; ?></span><br />
+  <h3>Title loaded: <?php echo $sc_title; ?></h3>
+  <span>API loaded: <?php echo $sc_api; ?></span><br />
+  <span>Longitude loaded: <?php echo $sc_longitude; ?></span><br />
+  <span>Latitude: loaded<?php echo $sc_latitude; ?></span><br />
 
 <?php echo $after_widget; ?>
 
