@@ -13,6 +13,14 @@ Text Domain: sc-dark-weather
 ?>
 
 <?php
+// Exit if accessed directly
+if ( ! defined( ABSPATH ) )
+{
+  exit;
+}
+?>
+
+<?php
 // Sets up all of the default options for all the variables needed
 function sc_dark_weather_install()
 {
