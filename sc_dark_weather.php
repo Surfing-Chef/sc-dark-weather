@@ -267,19 +267,23 @@ function sc_dark_weather_settings ()
   ?>
 
   <div>
-    <h3><<?php _e( 'SC Darksky Weather Options', 'sc_dark_weather' ); ?></h3><br />
+    <h1><?php _e( 'SC Darksky Weather Options', 'sc_dark_weather' ); ?></h1>
 
     <form method="post" action="options.php">
+
       <?php settings_fields( 'sc_dark_weather_vars' ); ?>
 
-      <?php _e('Title', 'sc_dark_weather_vars'); ?>
+      <span><?php _e('Title:', 'sc_dark_weather'); ?></span>
       <input type="text" name="sc_title" value="<?php echo get_option('sc_title') ?>" /><br />
 
-      <?php _e('Twitter ID', 'sc_dark_weather_vars'); ?>
-      <input type="text" name="sc_twitter" value="<?php echo get_option('sc_twitter') ?>" /><br />
+      <span><?php _e('API Token:', 'sc_dark_weather'); ?></span>
+      <input type="text" name="sc_api" value="<?php echo get_option('sc_api') ?>" /><br />
 
-      <?php _e('Facebook ID', 'sc_dark_weather_vars'); ?>
-      <input type="text" name="sc_facebook" value="<?php echo get_option('sc_facebook') ?>" /><br />
+      <span><?php _e('Longitude:', 'sc_dark_weather'); ?></span>
+      <input type="text" name="sc_longitude" value="<?php echo get_option('sc_longitude') ?>" /><br />
+
+      <span><?php _e('Latitude:', 'sc_dark_weather'); ?></span>
+      <input type="text" name="sc_latitude" value="<?php echo get_option('sc_latitude') ?>" /><br />
 
       <input type="submit" value="<?php  _e( 'Submit', sc_dark_weather) ?>">
     </form>
