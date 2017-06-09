@@ -75,7 +75,7 @@ plugins_url( 'images/YOUR_IMAGE.png' , __FILE__ );
 function sc_dark_weather_install()
 {
 
-  $sc_defaults_array = array( 'sc_title' => 'Follow Me', 'sc_facebook' => '', 'sc_twitter' =>'' );
+  $sc_defaults_array = array( 'sc_title' => 'SC Dark Weather', 'sc_api' => '', 'sc_longitude' =>'', 'sc_latitude' =>'' );
 
   update_option( 'sc_defaults', $sc_defaults_array );
 
