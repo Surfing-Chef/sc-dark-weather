@@ -319,19 +319,26 @@ function sc_dark_weather_create_menu ()
 */
 
 // Create a shortcode capability for the plugin
-// function sc_dark_weather_sc ( $atts )
-// {
-//   // Splits arguments out and makes them local variables.
-//   $atts = shortcode_atts(
-//     array(
-//       "sc_api"=>get_option('sc_api'),
-//       "sc_longitude"=>get_option('sc_longitude'),
-//       "sc_latitude"=>get_option('sc_latitude')
-//     ), $atts, 'scdarkweather');
-//
-//   return get_option('sc_api');
-//
-// }
+function sc_dark_weather_sc ( $atts )
+{
+  global $sc_dark_weather_vars;
+
+  // Splits arguments out and makes them local variables.
+  $atts = shortcode_atts(
+    array(
+      "sc_api"=>get_option('sc_api'),
+      "sc_longitude"=>get_option('sc_longitude'),
+      "sc_latitude"=>get_option('sc_latitude')
+    ), $atts, 'scdarkweather');
+
+    $sc_display = "<span>API loaded: " . $atts['sc_api'] . "</span><br />";
+    $sc_display .=  "<span>Longitude loaded: " . $atts['sc_longitude'] . "</span><br />";
+    $sc_display .=  "<span>Latitude:  loaded: " . $atts['sc_latitude'] . "</span><br />";
+
+
+  return   $sc_display;
+
+}
 // End of the function sc_dark_weather_sc
 
 // Attaches a rule that tells wordpress to call my function when widgets are
