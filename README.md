@@ -1,7 +1,7 @@
 # sc-dark-weather #
 A plugin for WordPress as a wrapper for Dark Sky weather service  
 ## changelog ##
-> Current Version: 1.5.0  
+> Current Version: 1.5 
 
 > Version: 1.2.0  
 > > Based on (this)[http://www.newthinktank.com/2011/05/wordpress-plugin-howto/] tutorial by Derek Banas  
@@ -20,6 +20,7 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 > > Starts to tailor the plugin to Dark Sky, based on (sister repository)[https://github.com/Surfing-Chef/sc-weather]
 > > Edit Dark Sky options page  
 > > Adjust plugin code to reflect new variables  
+> > Both Widget and shortcode ready  
 
 > Version: 1.5.0  
 > > Starts to tailor the plugin to Dark Sky, based on (sister repository)[https://github.com/Surfing-Chef/sc-weather]   
@@ -27,7 +28,8 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 > > > - cleanup extraneous code left from example  
 
 > > 1.5.2  
-> > > - copies code into plugin directory from (sister repository)[https://github.com/Surfing-Chef/sc-weather]  
+> > > - Use Composer to install [Darksky API Wrapper Package](https://packagist.org/packages/guhelski/forecast-php)
+> > > -  
 
-> Version: 1.5.0  
+> Version: 1.6.0  
 > > Removes ties to the social media example  
