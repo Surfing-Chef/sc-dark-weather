@@ -109,7 +109,7 @@ class sc_dark_weather extends WP_Widget
 			'classname' => 'sc_dark_weather',
 			'description' => __( 'Displays a Darksky weather feed' ),
 		);
-		parent::WP_Widget( 'sc_dark_weather', 'Darksky Weather Display', $widget_options );
+		parent::WP_Widget( 'sc_dark_weather', 'SC Darksky Weather Display', $widget_options );
 	}
   // END of function: sc_dark_weather
 
