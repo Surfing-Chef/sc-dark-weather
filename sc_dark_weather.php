@@ -319,19 +319,19 @@ function sc_dark_weather_create_menu ()
 */
 
 // Create a shortcode capability for the plugin
-function sc_dark_weather_sc ( $atts )
-{
-  // Splits arguments out and makes them local variables.
-  $atts = shortcode_atts(
-    array(
-      "sc_api"=>get_option('sc_api'),
-      "sc_longitude"=>get_option('sc_longitude'),
-      "sc_latitude"=>get_option('sc_latitude')
-    ), $atts, 'scdarkweather');
-
-  return get_option('sc_api');
-
-}
+// function sc_dark_weather_sc ( $atts )
+// {
+//   // Splits arguments out and makes them local variables.
+//   $atts = shortcode_atts(
+//     array(
+//       "sc_api"=>get_option('sc_api'),
+//       "sc_longitude"=>get_option('sc_longitude'),
+//       "sc_latitude"=>get_option('sc_latitude')
+//     ), $atts, 'scdarkweather');
+//
+//   return get_option('sc_api');
+//
+// }
 // End of the function sc_dark_weather_sc
 
 // Attaches a rule that tells wordpress to call my function when widgets are
@@ -349,5 +349,5 @@ add_action( 'admin_menu', 'sc_dark_weather_create_menu' );
 add_action( 'admin_init', 'sc_register_options' );
 
 // Allows this plugin to be used with a shortcode
-add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
+//add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
 ?>
