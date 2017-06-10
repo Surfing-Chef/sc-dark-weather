@@ -10,14 +10,10 @@ License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: sc-dark-weather
 */
-?>
 
-<?php
 // Exit if accessed directly
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
-?>
 
-<?php
 /**
 * Adds SC_Dark_Weather widget
 * by extending the WP_Widget class
