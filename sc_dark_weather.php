@@ -14,7 +14,7 @@ Text Domain: sc-dark-weather
 
 <?php
 // Exit if accessed directly
-defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
+// defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 ?>
 
 <?php
@@ -22,7 +22,22 @@ defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 function sc_dark_weather_install()
 {
 
-  $sc_defaults_array = array( 'sc_title' => 'SC Dark Weather', 'sc_api' => '', 'sc_longitude' =>'', 'sc_latitude' =>'' );
+  // Here if a title is set use it. If not use the default title
+  $sc_title = ( get_option( 'sc_title' ) ) ? get_option( 'sc_title' ) : '';
+
+  $sc_api = ( get_option( 'sc_api' ) ) ? get_option( 'sc_api' ) : '';
+
+  $sc_longitude = ( get_option( 'sc_longitude' ) ) ? get_option( 'sc_longitude' ) : '';
+
+  $sc_latitude = ( get_option( 'sc_latitude' ) ) ? get_option( 'sc_latitude' ) : '';
+
+
+  $sc_defaults_array = array(
+    'sc_title'      => $sc_title,
+    'sc_api'        => $sc_api,
+    'sc_longitude'  => $sc_longitude,
+    'sc_latitude'   => $sc_latitude 
+  );
 
   update_option( 'sc_defaults', $sc_defaults_array );
 
@@ -76,20 +91,6 @@ class sc_dark_weather extends WP_Widget
 	}
   // END of function widget( $args, $instance )
 
-  // Process widget options on save
-  function update( $new_instance, $old_instance )
-  {
-    $instance = $old_instance;
-
-		$instance['sc_title'] = strip_tags( $new_instance['sc_title'] );
-		$instance['sc_api'] = strip_tags( $new_instance['sc_api'] );
-		$instance['sc_longitude'] = strip_tags( $new_instance['sc_longitude'] );
-    $instance['sc_latitude'] = strip_tags( $new_instance['sc_latitude'] );
-
-		return $instance;
-  }
-  // END of function update( $new_instance, $old_instance )
-
   // Displays options in the widget admin section
   function form($instance)
   {
@@ -127,6 +128,20 @@ class sc_dark_weather extends WP_Widget
 
 	}
   //END of function form($instance)
+
+  // Process widget options on save
+  function update( $new_instance, $old_instance )
+  {
+    $instance = $old_instance;
+
+    $instance['title'] = strip_tags( $new_instance['title'] );
+    $instance['api'] = strip_tags( $new_instance['api'] );
+    $instance['longitude'] = strip_tags( $new_instance['longitude'] );
+    $instance['latitude'] = strip_tags( $new_instance['latitude'] );
+
+    return $instance;
+  }
+  // END of function update( $new_instance, $old_instance )
 
 }
 // End class sc_dark_weather creation
