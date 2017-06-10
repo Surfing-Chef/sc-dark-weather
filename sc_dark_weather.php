@@ -143,7 +143,7 @@ class sc_dark_weather extends WP_Widget
 // End class sc_dark_weather creation
 
 // Register a new widget to be used in a theme
-function sc_dark_weather_init ()
+function sc_dark_weather_init()
 {
   register_widget('sc_dark_weather');
 }
@@ -161,7 +161,7 @@ function sc_register_options()
 // END of function sc_register_options()
 
 // Create the settings page for the plugin
-function sc_dark_weather_settings ()
+function sc_dark_weather_settings()
 {
   ?>
 
@@ -170,7 +170,7 @@ function sc_dark_weather_settings ()
 
     <form method="post" action="options.php">
 
-      <?php settings_fields( 'sc_dark_weather_vars' ); ?>
+    <?php settings_fields( 'sc_dark_weather_vars' ); ?>
 
       <span><?php _e('Title:', 'sc_dark_weather'); ?></span>
       <input type="text" name="sc_title" value="<?php echo get_option('sc_title') ?>" /><br />
@@ -188,20 +188,20 @@ function sc_dark_weather_settings ()
     </form>
   </div>
 
-  <?php
+<?php
 
 }
 // END function sc_dark_weather_settings ()
 
 // Create a top-level menu item in the left sidebar
-function sc_dark_weather_create_menu ()
+function sc_dark_weather_create_menu()
 {
   add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugins_url( 'images/sc-dark-weather-sm-logo.png', __FILE__ ) );
 }
 // End of function sc_dark_weather_create_menu()
 
 // Create a shortcode capability for the plugin
-function sc_dark_weather_sc ( $atts )
+function sc_dark_weather_sc( $atts )
 {
   global $sc_dark_weather_vars;
 
@@ -236,4 +236,3 @@ add_action( 'admin_init', 'sc_register_options' );
 
 // Allows this plugin to be used with a shortcode
 add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
-?>
