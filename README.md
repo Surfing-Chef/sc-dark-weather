@@ -1,7 +1,7 @@
 # sc-dark-weather #
 A plugin for WordPress as a wrapper for Dark Sky weather service  
 ## changelog ##
-> Current Version: 1.5 
+> Current Version: 2.0
 
 > Version: 1.2.0  
 > > Based on (this)[http://www.newthinktank.com/2011/05/wordpress-plugin-howto/] tutorial by Derek Banas  
@@ -31,5 +31,6 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 > > > - Use Composer to install [Darksky API Wrapper Package](https://packagist.org/packages/guhelski/forecast-php)
 > > > -  
 
-> Version: 1.6.0  
-> > Removes ties to the social media example  
+> Version: 2.0
+> > Uses [Yeoman WordPress Plugin Generator] (https://github.com/WebDevStudios/generator-plugin-wp)  
+> > > - clear out plugin directory except sc_dark_weather.php and image folder with mini logo
