@@ -135,10 +135,10 @@ class sc_dark_weather extends WP_Widget
   {
     $instance = $old_instance;
 
-    $instance['title'] = strip_tags( $new_instance['title'] );
-    $instance['api'] = strip_tags( $new_instance['api'] );
-    $instance['longitude'] = strip_tags( $new_instance['longitude'] );
-    $instance['latitude'] = strip_tags( $new_instance['latitude'] );
+    $instance['sc_title'] = strip_tags( $new_instance['sc_title'] );
+    $instance['sc_api'] = strip_tags( $new_instance['sc_api'] );
+    $instance['sc_longitude'] = strip_tags( $new_instance['sc_longitude'] );
+    $instance['sc_latitude'] = strip_tags( $new_instance['sc_latitude'] );
 
     return $instance;
   }
