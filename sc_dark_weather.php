@@ -236,3 +236,6 @@ add_action( 'admin_init', 'sc_register_options' );
 
 // Allows this plugin to be used with a shortcode
 add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
+
+// Trial shortcode
+add_shortcode( 'sc_dark_weather', 'sc_display_weather_sc' );
