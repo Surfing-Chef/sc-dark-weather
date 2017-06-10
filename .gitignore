@@ -1,0 +1,59 @@
+# COMPOSER
+composer.phar
+/vendor/
+# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
+
+# SASS
+.sass-cache/
+*.css.map
+
+# WINDOWS
+# thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# WINDOWS
+# Dump file
+*.stackdump
+
+# WINDOWS
+# # WINDOWS
+# Folder config file
+Desktop.ini
+
+# WINDOWS
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# WINDOWS
+# Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# WINDOWS
+# shortcuts
+*.lnk
+
+# WORDPRESS
+*.log
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+
+/.htaccess
+/license.txt
+/readme.html
+/sitemap.xml
+/sitemap.xml.gz
