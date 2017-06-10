@@ -222,6 +222,16 @@ function sc_dark_weather_sc( $atts )
 }
 // End of the function sc_dark_weather_sc
 
+// Add a display shortcode to plugin
+function sc_display_weather_sc ()
+{
+  require 'sc_dark_weather_display.php';
+
+  $sc_page = new SC_Dark_Weather_Display;
+
+  echo $sc_page->sc_weather_output();
+};
+// End of the function sc_display_weather_sc
 
 // Attaches a rule that tells wordpress to call my function when widgets are
 // initialized
