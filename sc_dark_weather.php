@@ -27,7 +27,6 @@ function sc_dark_weather_install()
 
   $sc_latitude = ( get_option( 'sc_latitude' ) ) ? get_option( 'sc_latitude' ) : '';
 
-
   $sc_defaults_array = array(
     'sc_title'      => $sc_title,
     'sc_api'        => $sc_api,
@@ -243,6 +242,9 @@ add_action( 'admin_menu', 'sc_dark_weather_create_menu' );
 // Call the function that we create all of the options for the plugin being
 // title, facebook and twitter
 add_action( 'admin_init', 'sc_register_options' );
+
+// Sets up all of the default options for all the variables needed
+add_action( 'admin_init', 'sc_dark_weather_install' );
 
 // Allows this plugin to be used with a shortcode
 add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
