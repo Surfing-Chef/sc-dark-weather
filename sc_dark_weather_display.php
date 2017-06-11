@@ -85,7 +85,7 @@ class SC_Dark_Weather_Display {
         $topOffset = 50 + ($max - $tempMax)*3;
         $temp_height = 4*($tempMax-$tempMin);
 
-          $sc_weather_output .= '<div class="temp-daily-container" style="top: "' . $topOffset . 'px;\>';
+          $sc_weather_output .= '<div class="temp-daily-container" style="top: ' . $topOffset . 'px;"\>';
 
               $sc_weather_output .= '<span class="max temp-daily">' . $tempMax . '&deg;</span>';
 
