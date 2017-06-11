@@ -91,11 +91,11 @@ class sc_dark_weather extends WP_Widget
   function form($instance)
   {
     // Set all of the default values for the widget
-    $defaults = array( 'sc_title' => 'SC Darksky Weather Options', 'sc_api' => '', 'sc_longitude' => '', 'sc_latitude' => '' );
+    $sc_defaults = array( 'sc_title' => 'SC Darksky Weather Options', 'sc_api' => '', 'sc_longitude' => '', 'sc_latitude' => '' );
 
     // Grab any widget values that have been saved and merge them into an
     // array with wp_parse_args
-    $instance = wp_parse_args( (array) $instance, $defaults );
+    $instance = wp_parse_args( (array) $instance, $sc_defaults );
     $sc_title = $instance['sc_title'];
     $sc_api = $instance['sc_api'];
     $sc_longitude = $instance['sc_longitude'];
