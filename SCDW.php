@@ -1,6 +1,5 @@
 <?php
 /*
-Plugin Name: SC Dark Weather
 Plugin URI: https://github.com/Surfing-Chef/Dark
 Description: Uses a wrapper to display a weather feed from Darksky.net
 Version: 1.5.5
