@@ -166,7 +166,7 @@ function sc_dark_weather_settings()
   ?>
 
   <div>
-    <h1><?php _e( 'SC Darksky Weather Options', 'sc_dark_weather' ); ?></h1>
+    <h3><?php _e( 'SC Darksky Weather Options', 'sc_dark_weather' ); ?></h3><br>
 
     <form method="post" action="options.php">
 
