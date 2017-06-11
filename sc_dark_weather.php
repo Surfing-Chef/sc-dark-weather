@@ -184,7 +184,7 @@ function sc_dark_weather_settings()
       <span><?php _e('Latitude:', 'sc_dark_weather'); ?></span>
       <input type="text" name="sc_latitude" value="<?php echo get_option('sc_latitude') ?>" /><br />
 
-      <input type="submit" value="<?php  _e( 'Submit', sc_dark_weather) ?>">
+      <input type="submit" value="<?php _e( 'Submit', 'sc_dark_weather') ?>">
     </form>
   </div>
 
