@@ -29,7 +29,6 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > > 1.5.2  
 > > > - Use Composer to install [Darksky API Wrapper Package](https://packagist.org/packages/guhelski/forecast-php)
-> > > -  
 
-> Version: 1.6.0  
-> > Removes ties to the social media example  
+> > 1.5.5
+> > > Implements classes  
