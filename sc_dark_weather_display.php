@@ -7,29 +7,30 @@ require 'sc_dark_weather_functions.php';
 
 // Create a new class
 class SC_Dark_Weather_Display {
-
-  private $sc_token;
-  private $sc_long;
-  private $sc_lat;
-
-  function __construct( $sc_token, $sc_long, $sc_lat )
-  {
-    $this->$sc_token = $sc_token;
-  }
-
-  function sc_check($sc_token)
-  {
-    // check if forecast.json exists
-    // check age of forecast.json
-    // check if long and lat have changed
-  }
+  // 
+  // private $sc_token;
+  // private $sc_long;
+  // private $sc_lat;
+  //
+  // function __construct( $sc_token, $sc_long, $sc_lat )
+  // {
+  //   $this->$sc_token = $sc_token;
+  // }
+  //
+  // function sc_check($sc_token)
+  // {
+  //   // check if forecast.json exists
+  //   // check age of forecast.json
+  //   // check if long and lat have changed
+  // }
 
   function sc_weather_output()
   {
+
     $sc_weather_output = '<section id="sc-forecast" class="container-forecast">';
 
       $sc_weather_output .= '<header class="sc-weather-header">';
-        $sc_weather_output .= '<span>Weather</span>';
+        $sc_weather_output .= '<span>Weather - ' . $token . '</span>';
         $sc_weather_output .= '<a href="https://darksky.net/forecast/50.2963,-117.6857/ca12/en" target="_blank">Powered by Dark Sky</a>';
       $sc_weather_output .= '</header>';
 

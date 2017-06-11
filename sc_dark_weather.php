@@ -226,7 +226,10 @@ function sc_display_weather_sc ()
 {
   require 'sc_dark_weather_display.php';
 
-  $sc_page = new SC_Dark_Weather_Display;
+  $sc_page = new SC_Dark_Weather_Display();
+  // (
+  //   'token', 'lat', 'long'
+  // );
 
   echo $sc_page->sc_weather_output();
 };
