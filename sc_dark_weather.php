@@ -155,22 +155,29 @@ function sc_dark_weather_settings()
     <form method="post" action="options.php">
 
     <?php settings_fields( 'sc_dark_weather_vars' ); ?>
+      <div class="sc-plugin-form-row">
+        <span class="sc-plugin-form-label"><?php _e('Title:', 'sc_dark_weather'); ?></span>
+        <input type="text" name="sc_title" value="<?php echo get_option('sc_title') ?>"/><br />
+        <span class="description">(Title of widget)</span><br>
+      </div>
 
-      <span><?php _e('Title:', 'sc_dark_weather'); ?></span>
-      <input type="text" name="sc_title" value="<?php echo get_option('sc_title') ?>"/><br />
-      <span class="description">Title of widget</span><br>
+      <div class="sc-plugin-form-row">
+        <span class="sc-plugin-form-label"><?php _e('API Token:', 'sc_dark_weather'); ?></span>
+        <input type="text" name="sc_api" value="<?php echo get_option('sc_api') ?>" /><br />
+        <span class="description">(Dark Sky Secret Key)</span><br>
+      </div>
 
-      <span><?php _e('API Token:', 'sc_dark_weather'); ?></span>
-      <input type="text" name="sc_api" value="<?php echo get_option('sc_api') ?>" /><br />
-      <span class="description">Your Dark Sky Secret Key</span><br>
+      <div class="sc-plugin-form-row">
+        <span class="sc-plugin-form-label"><?php _e('Latitude:', 'sc_dark_weather'); ?></span>
+        <input type="text" name="sc_latitude" value="<?php echo get_option('sc_latitude') ?>" /><br />
+        <span class="description">(Latitude of desired forecast)</span><br>
+      </div>
 
-      <span><?php _e('Latitude:', 'sc_dark_weather'); ?></span>
-      <input type="text" name="sc_latitude" value="<?php echo get_option('sc_latitude') ?>" /><br />
-      <span class="description">Latitude of desired forecast</span><br>
-
-      <span><?php _e('Longitude:', 'sc_dark_weather'); ?></span>
-      <input type="text" name="sc_longitude" value="<?php echo get_option('sc_longitude') ?>" /><br />
-      <span class="description">Longitude of desired forecast</span><br>
+      <div class="sc-plugin-form-row">
+        <span class="sc-plugin-form-label"><?php _e('Longitude:', 'sc_dark_weather'); ?></span>
+        <input type="text" name="sc_longitude" value="<?php echo get_option('sc_longitude') ?>" /><br />
+        <span class="description">(Longitude of desired forecast)</span><br>
+      </div>
 
       <input type="submit" value="<?php _e( 'Submit', 'sc_dark_weather') ?>">
     </form>
