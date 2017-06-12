@@ -10,39 +10,28 @@ License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: sc-dark-weather
 */
-
 // Exit if accessed directly
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
-
 // Import required files and classes
 require 'sc_dark_weather_display.php';
 require 'sc_dark_weather_check.php';
-
 // Sets up all of the default options for all the variables needed
 function sc_dark_weather_install()
 {
-
   // Here if a title is set use it. If not use the default title
   $sc_title = ( get_option( 'sc_title' ) ) ? get_option( 'sc_title' ) : '';
-
   $sc_api = ( get_option( 'sc_api' ) ) ? get_option( 'sc_api' ) : '';
-
   $sc_longitude = ( get_option( 'sc_longitude' ) ) ? get_option( 'sc_longitude' ) : '';
-
   $sc_latitude = ( get_option( 'sc_latitude' ) ) ? get_option( 'sc_latitude' ) : '';
-
   $sc_defaults_array = array(
     'sc_title'      => $sc_title,
     'sc_api'        => $sc_api,
     'sc_longitude'  => $sc_longitude,
     'sc_latitude'   => $sc_latitude
   );
-
   update_option( 'sc_defaults', $sc_defaults_array );
-
 }
 // END of function: sc_dark_weather_install
-
 // Create a widget by extending the WP_Widget class
 class sc_dark_weather extends WP_Widget
 {
@@ -56,23 +45,17 @@ class sc_dark_weather extends WP_Widget
 		parent::WP_Widget( 'sc_dark_weather', 'SC Darksky Weather Display', $widget_options );
 	}
   // END of function: sc_dark_weather
-
    // Output the content of the widget
   function widget( $args, $instance )
   {
     // Splits arguments out and makes them local variables. EXTR_SKIP
     // protects any already created local variables
 		extract( $args, EXTR_SKIP );
-
     // Here if a title is set use it. If not use the default title
     $sc_title = ( get_option( 'sc_title' ) ) ? get_option( 'sc_title' ) : '';
-
 		$sc_api = ( get_option( 'sc_api' ) ) ? get_option( 'sc_api' ) : '';
-
 		$sc_longitude = ( get_option( 'sc_longitude' ) ) ? get_option( 'sc_longitude' ) : '';
-
     $sc_latitude = ( get_option( 'sc_latitude' ) ) ? get_option( 'sc_latitude' ) : '';
-
     ?>
 
 <?php echo $before_widget; ?>
@@ -89,13 +72,11 @@ class sc_dark_weather extends WP_Widget
 <?php
 	}
   // END of function widget( $args, $instance )
-
   // Displays options in the widget admin section
   function form($instance)
   {
     // Set all of the default values for the widget
     $sc_defaults = array( 'sc_title' => 'SC Darksky Weather Options', 'sc_api' => '', 'sc_longitude' => '', 'sc_latitude' => '' );
-
     // Grab any widget values that have been saved and merge them into an
     // array with wp_parse_args
     $instance = wp_parse_args( (array) $instance, $sc_defaults );
@@ -103,7 +84,6 @@ class sc_dark_weather extends WP_Widget
     $sc_api = $instance['sc_api'];
     $sc_longitude = $instance['sc_longitude'];
     $sc_latitude = $instance['sc_latitude'];
-
     ?>
 
     <!-- Create the form elements needed to set the widget values
@@ -117,41 +97,32 @@ class sc_dark_weather extends WP_Widget
     <p>Latitude: <input class="scdarkweather" name="<?php echo $this->get_field_name( 'sc_latitude' ); ?>" type="text" value="<?php echo esc_attr( $sc_latitude ); ?>" /></p>
 
 <?php
-
     settings_fields( 'sc_dark_weather_vars' );
-
     update_option( 'sc_title', $sc_title );
     update_option( 'sc_api', $sc_api );
     update_option( 'sc_longitude', $sc_longitude );
     update_option( 'sc_latitude', $sc_latitude );
-
 	}
   //END of function form($instance)
-
   // Process widget options on save
   function update( $new_instance, $old_instance )
   {
     $instance = $old_instance;
-
     $instance['sc_title'] = strip_tags( $new_instance['sc_title'] );
     $instance['sc_api'] = strip_tags( $new_instance['sc_api'] );
     $instance['sc_longitude'] = strip_tags( $new_instance['sc_longitude'] );
     $instance['sc_latitude'] = strip_tags( $new_instance['sc_latitude'] );
-
     return $instance;
   }
   // END of function update( $new_instance, $old_instance )
-
 }
 // End class sc_dark_weather creation
-
 // Register a new widget to be used in a theme
 function sc_dark_weather_init()
 {
   register_widget('sc_dark_weather');
 }
 // END of function sc_dark_weather_init ()
-
 // Create the variable optionss needed for the plugin and settings page
 function sc_register_options()
 {
@@ -162,7 +133,6 @@ function sc_register_options()
   register_setting( 'sc_dark_weather_vars', 'sc_latitude' );
 }
 // END of function sc_register_options()
-
 // Create the settings page for the plugin
 function sc_dark_weather_settings()
 {
@@ -192,22 +162,18 @@ function sc_dark_weather_settings()
   </div>
 
 <?php
-
 }
 // END function sc_dark_weather_settings ()
-
 // Create a top-level menu item in the left sidebar
 function sc_dark_weather_create_menu()
 {
   add_menu_page( 'SC Darksky Weather', 'Darksky Settings', 'administrator', __FILE__, 'sc_dark_weather_settings', plugins_url( 'images/sc-dark-weather-sm-logo.png', __FILE__ ) );
 }
 // End of function sc_dark_weather_create_menu()
-
 // Create a shortcode capability for the plugin
 function sc_dark_weather_sc( $atts )
 {
   global $sc_dark_weather_vars;
-
   // Splits arguments out and makes them local variables.
   $atts = shortcode_atts(
     array(
@@ -215,16 +181,12 @@ function sc_dark_weather_sc( $atts )
       "sc_longitude"=>get_option('sc_longitude'),
       "sc_latitude"=>get_option('sc_latitude')
     ), $atts, 'scdarkweather');
-
     $sc_display = "<span>API loaded: " . $atts['sc_api'] . "</span><br />";
     $sc_display .=  "<span>Longitude loaded: " . $atts['sc_longitude'] . "</span><br />";
     $sc_display .=  "<span>Latitude:  loaded: " . $atts['sc_latitude'] . "</span><br />";
-
   return   $sc_display;
-
 }
 // End of the function sc_dark_weather_sc
-
 // Add a display shortcode to plugin
 function sc_display_weather_sc ()
 {
@@ -232,7 +194,6 @@ function sc_display_weather_sc ()
   echo $sc_page->sc_weather_output();
 };
 // End of the function sc_display_weather_sc
-
 // Add a test shortcode to plugin
 function sc_test_sc ()
 {
@@ -240,35 +201,26 @@ function sc_test_sc ()
   $sc_long = get_option( 'sc_longitude' );
   $sc_lat = get_option( 'sc_latitude' );
   $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
-
   // $sc_page = new SC_Dark_Weather_Display($sc_api, $sc_long, $sc_lat, $sc_json);
   // echo $sc_page->sc_weather_output();
   $sc_check = new SC_Dark_Weather_Check($sc_api, $sc_long, $sc_lat, $sc_json);
-
   echo $sc_check->sc_test_json();
   echo $sc_check->sc_test_lat_long();
 };
 // End of the function sc_test_sc
-
 // Attaches a rule that tells wordpress to call my function when widgets are
 // initialized
 add_action('widgets_init', 'sc_dark_weather_init');
-
 // Creates a top level menu in your dashboards left sidebar
 add_action( 'admin_menu', 'sc_dark_weather_create_menu' );
-
 // Call the function that we create all of the options for the plugin being
 // title, facebook and twitter
 add_action( 'admin_init', 'sc_register_options' );
-
 // Sets up all of the default options for all the variables needed
 add_action( 'admin_init', 'sc_dark_weather_install' );
-
 // Allows this plugin to be used with a shortcode
 add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
-
 // Trial shortcode
 add_shortcode( 'sc_dark_weather', 'sc_display_weather_sc' );
-
 // Test shortcode
 add_shortcode( 'sc_test_sc', 'sc_test_sc' );
