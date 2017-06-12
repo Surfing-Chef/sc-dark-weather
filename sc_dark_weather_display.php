@@ -21,22 +21,6 @@ class SC_Dark_Weather_Display
     $this->sc_json = $sc_json;
   }
 
-  // check if forecast.json exists
-  // check age of forecast.json (<> 30 mins)
-  // function sc_test_json() { return $this->sc_json };
-  // check if token has changed
-  // function sc_test_token(){ return $this->sc_token; }
-  // function sc_test_long(){ return $this->sc_long; }
-  // function sc_test_lat(){ return $this->sc_lat; }
-
-
-  function sc_check($sc_api, $sc_long, $sc_lat)
-  {
-    // check if forecast.json exists
-    // check age of forecast.json
-    // check if long and lat have changed
-  }
-
   function sc_weather_output()
   {
 
