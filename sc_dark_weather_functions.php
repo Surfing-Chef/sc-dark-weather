@@ -17,6 +17,8 @@ function parse_cache($timeFrame=''){
   // If $timeFrame is specified
   if ($timeFrame != ''){
     $array = $array[$timeFrame];
+  } else {
+    $array = $array;
   }
 
   return $array;
@@ -31,6 +33,8 @@ function output_cache($timeFrame, $key){
     $timeFrame = parse_cache( 'hourly' );
   } else if ($timeFrame == "daily"){
     $timeFrame = parse_cache( 'daily' );
+  } else if ($timeFrame == ""){
+    $timeFrame = parse_cache( '' );
   }
 
   return $timeFrame[$key];

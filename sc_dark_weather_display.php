@@ -3,24 +3,32 @@
 //defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 
 // Import Functions
-require 'sc_dark_weather_functions.php';
+require_once 'sc_dark_weather_functions.php';
 
 // Create a new class
 class SC_Dark_Weather_Display
 {
-  //
-  // private $sc_token;
-  // private $sc_long;
-  // private $sc_lat;
-  //
-  // function __construct( $sc_token, $sc_long, $sc_lat )
-  // {
-  //   $this->sc_token = $sc_token;
-  // }
 
-  // function getToken(){ return $this->sc_token; }
-  // function getLong(){ return $this->sc_long; }
-  // function getLat(){ return $this->sc_lat; }
+  private $sc_token;
+  private $sc_long;
+  private $sc_lat;
+
+  function __construct( $sc_token, $sc_long, $sc_lat, $sc_json )
+  {
+    $this->sc_token = $sc_token;
+    $this->sc_long = $sc_long;
+    $this->sc_lat = $sc_lat;
+    $this->sc_json = $sc_json;
+  }
+
+  // check if forecast.json exists
+  // check age of forecast.json (<> 30 mins)
+  // function sc_test_json() { return $this->sc_json };
+  // check if token has changed
+  // function sc_test_token(){ return $this->sc_token; }
+  // function sc_test_long(){ return $this->sc_long; }
+  // function sc_test_lat(){ return $this->sc_lat; }
+
 
   function sc_check($sc_api, $sc_long, $sc_lat)
   {
@@ -29,13 +37,13 @@ class SC_Dark_Weather_Display
     // check if long and lat have changed
   }
 
-  function sc_weather_output( $sc_api, $sc_long, $sc_lat )
+  function sc_weather_output()
   {
 
     $sc_weather_output = '<section id="sc-forecast" class="container-forecast">';
 
       $sc_weather_output .= '<header class="sc-weather-header">';
-        $sc_weather_output .= '<span>Weather: '. $sc_long . ', ' . $sc_lat .'</span>';
+        $sc_weather_output .= '<span>Weather' . $sc_lat .'</span>';
         $sc_weather_output .= '<a href="https://darksky.net/forecast/50.2963,-117.6857/ca12/en" target="_blank">Powered by Dark Sky</a>';
       $sc_weather_output .= '</header>';
 

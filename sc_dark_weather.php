@@ -228,16 +228,27 @@ function sc_dark_weather_sc( $atts )
 // Add a display shortcode to plugin
 function sc_display_weather_sc ()
 {
-  require 'sc_dark_weather_display.php';
+  $sc_page = new SC_Dark_Weather_Display($sc_api, $sc_long, $sc_lat, $sc_json);
+  echo $sc_page->sc_weather_output();
+};
+// End of the function sc_display_weather_sc
 
-  $sc_page = new SC_Dark_Weather_Display();
-
+// Add a test shortcode to plugin
+function sc_test_sc ()
+{
   $sc_api = get_option( 'sc_api' );
   $sc_long = get_option( 'sc_longitude' );
   $sc_lat = get_option( 'sc_latitude' );
-  echo $sc_page->sc_weather_output( $sc_api, $sc_long, $sc_lat );
+  $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
+
+  // $sc_page = new SC_Dark_Weather_Display($sc_api, $sc_long, $sc_lat, $sc_json);
+  // echo $sc_page->sc_weather_output();
+  $sc_check = new SC_Dark_Weather_Check($sc_api, $sc_long, $sc_lat, $sc_json);
+
+  echo $sc_check->sc_test_json();
+  echo $sc_check->sc_test_lat_long();
 };
-// End of the function sc_display_weather_sc
+// End of the function sc_test_sc
 
 // Attaches a rule that tells wordpress to call my function when widgets are
 // initialized
@@ -258,3 +269,6 @@ add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
 
 // Trial shortcode
 add_shortcode( 'sc_dark_weather', 'sc_display_weather_sc' );
+
+// Test shortcode
+add_shortcode( 'sc_test_sc', 'sc_test_sc' );
