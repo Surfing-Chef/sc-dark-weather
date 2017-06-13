@@ -1,9 +1,10 @@
 <?php
-// WordPress check to deny direct access to the file
-//defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
+/*
+  Description: Outputs forecast in HTML format
+*/
 
 // Import Functions
-require_once 'sc_dark_weather_functions.php';
+require_once 'sc_dark _weather_functions.php';
 
 // Create a new class
 class SC_Dark_Weather_Display
