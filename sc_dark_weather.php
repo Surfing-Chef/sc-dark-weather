@@ -14,8 +14,9 @@ Text Domain: sc-dark-weather
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 
 // Import required files and classes
-require 'sc_dark_weather_display.php';
 require 'sc_dark_weather_check.php';
+require 'sc_dark_weather_compare.php';
+require 'sc_dark_weather_display.php';
 
 // Sets up all of the default options for all the variables needed
 function sc_dark_weather_install()
@@ -214,7 +215,7 @@ function sc_dark_weather_sc( $atts )
 // End of the function sc_dark_weather_sc
 
 // Add a display shortcode to plugin
-function sc_display_weather_sc ()
+function sc_display_weather_sc()
 {
   $sc_page = new SC_Dark_Weather_Display($sc_api, $sc_long, $sc_lat, $sc_json);
   echo $sc_page->sc_weather_output();
@@ -222,16 +223,44 @@ function sc_display_weather_sc ()
 // End of the function sc_display_weather_sc
 
 // Add a test shortcode to plugin
-function sc_test_sc ()
+function sc_test_sc()
 {
-  $sc_api = get_option( 'sc_api' );
-  $sc_long = get_option( 'sc_longitude' );
+  $sc_api =get_option( 'sc_api' );
   $sc_lat = get_option( 'sc_latitude' );
-  $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
+  $sc_long = get_option( 'sc_longitude' );
+  $sc_json_f = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
+  $sc_json_a = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.json';
 
-  $sc_check = new SC_Dark_Weather_Check($sc_api, $sc_long, $sc_lat, $sc_json);
-  echo $sc_check->sc_test_json();
-  echo $sc_check->sc_test_lat_long();
+  $args = array( $sc_api, $sc_lat, $sc_long, $sc_json_f, $sc_json_a);
+  $sc_check = new SC_Dark_Weather_Check( $args );
+
+  // check if anything needs fixing
+  $checked = $sc_check->sc_test();
+  if ( $checked[5][0] != 0 )
+  {
+    echo '<h3>SC_Dark_Weather_Check results:</h3>';
+    var_dump( $sc_check->sc_test() );
+    echo 'Fix' . $checked[5][1];
+  } else {
+    echo '<h3>SC_Dark_Weather_Check results:</h3>';
+    var_dump( $sc_check->sc_test() );
+    echo 'Load array into SC_Dark_Weather_Compare<br>';
+  }
+
+  // check if anything needs updating
+  $sc_compare = new SC_Dark_Weather_Compare( $checked );
+  $ready = $sc_compare->sc_test();
+  if ( $ready[5][0] != 0 )
+  {
+    echo '<h3>SC_Dark_Weather_Compare results:</h3>';
+    var_dump( $sc_compare->sc_test() );
+    echo 'Fix' . $ready[5][1];
+  } else {
+    echo '<h3>SC_Dark_Weather_Compare results:</h3>';
+    var_dump( $sc_compare->sc_test() );
+    echo 'Load array into SC_Dark_Weather_Display<br>';
+  }
+
 };
 // End of the function sc_test_sc
 
