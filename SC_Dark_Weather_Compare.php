@@ -24,23 +24,8 @@
 require_once 'sc_dark_weather_functions.php';
 
 // Create the class
-class SC_Dark_Weather_Compare
+class SC_Dark_Weather_Compare extends SC_Dark_Weather_Check
   {
-  private $sc_token;
-  private $sc_lat;
-  private $sc_long;
-  private $sc_json_f;
-  private $sc_json_a;
-
-  function __construct( $args )
-  {
-    $this->sc_token = $args[0];
-    $this->sc_lat = $args[1];
-    $this->sc_long = $args[2];
-    $this->sc_json_f = $args[3];
-    $this->sc_json_a = $args[4];
-  }
-
   function sc_test()
   {
     $update = array(0, 'OK');
