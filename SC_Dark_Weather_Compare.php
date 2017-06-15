@@ -24,7 +24,7 @@
 require_once 'sc_dark_weather_functions.php';
 
 // Create the class
-class SC_Dark_Weather_Compare extends SC_Dark_Weather_Check
+class SC_Dark_Weather_Compare extends SC_Dark_Weather_Filter
   {
   function sc_test()
   {
