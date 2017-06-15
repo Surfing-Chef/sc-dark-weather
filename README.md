@@ -24,12 +24,14 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.5.0  
 > > Creates classes that build the forecast to be displayed to users  
-> > 1.5.1 *Classifies* files:  
+> > 1.5.1 *Classifies* files:
 
-__SC_Dark_Weather_Check:__ checks arguments before passing them to __Compare__  
+__SC_Dark_Weather_Filter:__ Basis for Check and Compare classes   
 
-__SC_Dark_Weather_Compare:__ compares options set in the options panel to the ones being called for use in __Display__  
-***MAYBE EXTEND CHECK FOR COMPARE CLASS***
+__SC_Dark_Weather_Check:__ Extends __SC_Dark_Weather_Filter:__ and checks arguments before passing them to __Compare__  
+
+__SC_Dark_Weather_Compare:__ Extends __SC_Dark_Weather_Filter:__ and compares options set in the options panel to the ones being called for use in __Display__  
+
 __SC_Dark_Weather_Json_Forecast:__ creates a cache file for __Display__ to read from  
 
 __SC_Dark_Weather_Json_Args:__ creates a cache file for *update.php* to read from   
