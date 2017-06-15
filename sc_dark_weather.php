@@ -14,6 +14,7 @@ Text Domain: sc-dark-weather
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 
 // Import required files and classes
+require 'sc_dark_weather_filter.php';
 require 'sc_dark_weather_check.php';
 require 'sc_dark_weather_compare.php';
 require 'sc_dark_weather_display.php';
