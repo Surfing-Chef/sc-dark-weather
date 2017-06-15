@@ -43,9 +43,13 @@ class SC_Dark_Weather_Check
 
   function sc_test()
   {
-    $testArray = array( $this->sc_token, $this->sc_lat, $this->sc_long, $this->sc_json_f, $this->sc_json_a );
+    $update = array(0, 'OK');
+
+    $testArray = array( $this->sc_token, $this->sc_lat, $this->sc_long, $this->sc_json_f, $this->sc_json_a, $update );
 
     // THIS ARRAY CONTAINS THE FILTERED, COMPARISON READY ARGUMENTS
+    // IT WILL ALSO CONTAIN AN UPDATE ARRAY:
+    // TRUE AND A FILENAME OR FALSE and 'OK'
     return $testArray;
   }
 
