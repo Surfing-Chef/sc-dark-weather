@@ -1,7 +1,13 @@
 <?php
-// WordPress check to deny direct access to the file
-//defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
+/**
+ *
+ * Contains various utility functions
+ *
+ */
 
+// Requirements
+
+// Constants
 define( 'SCWEATHER_PLUGIN_URL', plugins_url()."/sc-dark-weather/" );
 
 define( 'SCWEATHER_IMG_URL', plugins_url()."/sc-dark-weather/images/" );
