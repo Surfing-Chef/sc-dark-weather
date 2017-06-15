@@ -26,21 +26,21 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 > > Creates classes that build the forecast to be displayed to users  
 > > 1.5.1 *Classifies* files:  
 
-__Check:__ checks arguments before passing them to __Compare__  
+__SC_Dark_Weather_Check:__ checks arguments before passing them to __Compare__  
 
-__Compare:__ compares options set in the options panel to the ones being called for use in __Display__  
+__SC_Dark_Weather_Compare:__ compares options set in the options panel to the ones being called for use in __Display__  
+***MAYBE EXTEND CHECK FOR COMPARE CLASS***
+__SC_Dark_Weather_Json_Forecast:__ creates a cache file for __Display__ to read from  
 
-__Json_Forecast:__ creates a cache for __Display__ to read from  
+__SC_Dark_Weather_Json_Args:__ creates a cache file for *update.php* to read from   
 
-__Json_Args:__ creates a cache for *update.php* to read from if updates are required outside the WordPress scope  
-
-__Display:__ displays the Dark Sky weather forecast from data stored in the *forecast.json* file  
-
-__Functions:__ contains utility functions  
-
-_update.php:_ file called from outside the scope of WordPress to update the forecast - ie cronjob, scheduled task  
+__SC_Dark_Weather_Display:__ displays the Dark Sky weather forecast from data stored in the *forecast.json* file  
 
 _sc_dark_weather.php:_ main plugin file  
+
+_sc_dark_weather_functions:_ contains utility functions   
+
+_update.php:_ file called from outside the scope of WordPress to update the forecast - ie cronjob, scheduled task  
 
 _forecast.json_ container file for data pulled from Darksky.net  
 
