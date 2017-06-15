@@ -1,7 +1,7 @@
 # sc-dark-weather #
 A plugin for WordPress as a wrapper for Dark Sky weather service  
 ## changelog ##
-> Current Version: 1.5
+> Current Version: 1.5.1
 
 > Version: 1.2.0  
 > > Based on (this)[http://www.newthinktank.com/2011/05/wordpress-plugin-howto/] tutorial by Derek Banas  
@@ -24,4 +24,13 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.5.0  
 > > Creates classes that build the forecast to be displayed to users
-> > 
+> > 1.5.1 Compartmentalizes files into classes:  
+
+_Check:_  
+_Compare:_  
+_Json_Forecast:_  
+_Json_Args:_  
+_Display:_  
+_Functions:_  
+_update.php:_  
+_sc-dark-weather.php:_  
