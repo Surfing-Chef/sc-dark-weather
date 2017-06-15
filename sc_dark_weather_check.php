@@ -15,7 +15,7 @@
  *                                  string json_forecast,
  *                                  string json_args,
  *                                  array  update ( boolean,
- *                                                  string   file to update
+ *                                                  string   item to update
  *                                                )
  *                                )
  */
