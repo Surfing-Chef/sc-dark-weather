@@ -22,7 +22,7 @@
 
 // Requirements
 require_once 'sc_dark_weather_functions.php';
-require_once 'args.php';
+// require_once 'args.php';
 
 // Create the class
 class SC_Dark_Weather_Check
