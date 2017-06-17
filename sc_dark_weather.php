@@ -17,6 +17,7 @@ defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 require 'sc_dark_weather_check.inc';
 require 'sc_dark_weather_compare.inc';
 require 'sc_dark_weather_display.inc';
+require 'SCDW_Check.inc';
 
 // Sets up all of the default options for all the variables needed
 function sc_dark_weather_install()
@@ -232,37 +233,50 @@ function sc_test_sc()
   $sc_json_a = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
 
   $args = array( $sc_api, $sc_lat, $sc_long, $sc_json_f, $sc_json_a);
-  $sc_check = new SC_Dark_Weather_Check( $args );
+  $sc_check = new SCDW_Check( $args );
 
-  // CHECK if anything needs fixing
-  $checked = $sc_check->sc_check();
-  if ( empty($checked[5]) )
-  {
-    var_dump( $sc_check->sc_check() );
-    echo '<h4>Load this checked object as an array into SC_Dark_Weather_Compare</h4><br><br>';
-  } else {
-    // update
-    $sc_fix = new SC_Dark_Weather_Check( $checked );
-    $fixed = $sc_fix->sc_fix();
-    echo 'Fix' . $checked[5];
-    }
+  // Check files and options
+  $checked = $sc_check->checkFiles();
+
+  // Create necessary files
+  $create = $sc_check->createFiles( $checked );
+  echo $create;
+  // if ( empty($checked[5]) )
+  // {
+  //   var_dump( $sc_check->sc_check() );
+  //   echo '<h3>This object has been checked</h3>';
+  //   echo '<p>The token, latutude and longitude have been filtered are are valid. ';
+  //   echo 'And the forecast.json file exists.</p>';
+  // } else {
+  //   // update
+  //   foreach ($checked[5] as $key => $value) {
+  //     if($value == 'json_f'){
+  //       $fix = 'No forecast.json file exists.';
+  //     } elseif ($value == 'json_a'){
+  //       $fix = 'No args.json file exists.';
+  //     }
+  //
+  //     echo $fix . '<br>';
+  //   }
+  //
+  // }
 
   // COMPARES and updates when required
-  $sc_compare = new SC_Dark_Weather_Compare( $checked );
-  $ready = $sc_compare->sc_compare();
-  if ( $ready[5][0] != 0 )
-  {
-    var_dump( $sc_compare->sc_compare() );
-    echo 'Fix' . $ready[5][1];
-  } else {
-    var_dump( $sc_compare->sc_compare() );
-    echo '<h4>Load this compared object as an array into SC_Dark_Weather_Display</h4><br><br>';
-  }
-
+  // $sc_compare = new SC_Dark_Weather_Compare( $checked );
+  // $ready = $sc_compare->sc_compare();
+  // if ( $ready[5][0] != 0 )
+  // {
+  //   var_dump( $sc_compare->sc_compare() );
+  //   echo 'Fix' . $ready[5][1];
+  // } else {
+  //   var_dump( $sc_compare->sc_compare() );
+  //   echo '<h4>Load this compared object as an array into SC_Dark_Weather_Display</h4><br><br>';
+  // }
+  //
   // DISPLAY CHECKed and COMPAREd forecast
-  $sc_output = new SC_Dark_Weather_Display( $ready );
-  echo '<h3>Displayed by SC_Dark_Weather_Display class</h3>';
-  echo $sc_output->sc_weather_output();
+  // $sc_output = new SC_Dark_Weather_Display( $ready );
+  // echo '<h3>Displayed by SC_Dark_Weather_Display class</h3>';
+  // echo $sc_output->sc_weather_output();
 };
 // End of the function sc_test_sc
 
