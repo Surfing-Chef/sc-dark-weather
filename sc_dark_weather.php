@@ -225,42 +225,44 @@ function sc_display_weather_sc()
 // Add a test shortcode to plugin
 function sc_test_sc()
 {
-  $sc_api =get_option( 'sc_api' );
+  $sc_api = get_option( 'sc_api' );
   $sc_lat = get_option( 'sc_latitude' );
   $sc_long = get_option( 'sc_longitude' );
   $sc_json_f = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
-  $sc_json_a = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.json';
+  $sc_json_a = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
 
   $args = array( $sc_api, $sc_lat, $sc_long, $sc_json_f, $sc_json_a);
   $sc_check = new SC_Dark_Weather_Check( $args );
 
-  // check if anything needs fixing
-  $checked = $sc_check->sc_test();
-  if ( $checked[5][0] != 0 )
+  // CHECK if anything needs fixing
+  $checked = $sc_check->sc_check();
+  if ( empty($checked[5]) )
   {
-    echo '<h3>SC_Dark_Weather_Check results:</h3>';
-    var_dump( $sc_check->sc_test() );
-    echo 'Fix' . $checked[5][1];
+    var_dump( $sc_check->sc_check() );
+    echo '<h4>Load this checked object as an array into SC_Dark_Weather_Compare</h4><br><br>';
   } else {
-    echo '<h3>SC_Dark_Weather_Check results:</h3>';
-    var_dump( $sc_check->sc_test() );
-    echo 'Load array into SC_Dark_Weather_Compare<br>';
-  }
+    // update
+    $sc_fix = new SC_Dark_Weather_Check( $checked );
+    $fixed = $sc_fix->sc_fix();
+    echo 'Fix' . $checked[5];
+    }
 
-  // check if anything needs updating
+  // COMPARES and updates when required
   $sc_compare = new SC_Dark_Weather_Compare( $checked );
-  $ready = $sc_compare->sc_test();
+  $ready = $sc_compare->sc_compare();
   if ( $ready[5][0] != 0 )
   {
-    echo '<h3>SC_Dark_Weather_Compare results:</h3>';
-    var_dump( $sc_compare->sc_test() );
+    var_dump( $sc_compare->sc_compare() );
     echo 'Fix' . $ready[5][1];
   } else {
-    echo '<h3>SC_Dark_Weather_Compare results:</h3>';
-    var_dump( $sc_compare->sc_test() );
-    echo 'Load array into SC_Dark_Weather_Display<br>';
+    var_dump( $sc_compare->sc_compare() );
+    echo '<h4>Load this compared object as an array into SC_Dark_Weather_Display</h4><br><br>';
   }
 
+  // DISPLAY CHECKed and COMPAREd forecast
+  $sc_output = new SC_Dark_Weather_Display( $ready );
+  echo '<h3>Displayed by SC_Dark_Weather_Display class</h3>';
+  echo $sc_output->sc_weather_output();
 };
 // End of the function sc_test_sc
 
