@@ -14,10 +14,9 @@ Text Domain: sc-dark-weather
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 
 // Import required files and classes
-require 'sc_dark_weather_filter.php';
-require 'sc_dark_weather_check.php';
-require 'sc_dark_weather_compare.php';
-require 'sc_dark_weather_display.php';
+require 'sc_dark_weather_check.inc';
+require 'sc_dark_weather_compare.inc';
+require 'sc_dark_weather_display.inc';
 
 // Sets up all of the default options for all the variables needed
 function sc_dark_weather_install()
