@@ -100,7 +100,7 @@ class SCDW_Check
       $toCreate .= 'Creating args.php<br>';
     }
 
-    $return = $toCreate . '<br>';
+    $return = $toCreate;
 
     return $return;
   }
