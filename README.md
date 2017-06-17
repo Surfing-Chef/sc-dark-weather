@@ -33,4 +33,4 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 2.0
 > > Uses [Yeoman WordPress Plugin Generator] (https://github.com/WebDevStudios/generator-plugin-wp)  
-> > > - clear out plugin directory except sc_dark_weather.php and image folder with mini logo
+> > > - clear out plugin directory except sc_dark_weather.php and image folder with mini logo 
