@@ -47,10 +47,10 @@ class SCDW_Data
     fwrite( $fp, $options );
     fclose( $fp );
   }
-
-  forecast_cache(
-    $this->sc_lat,
-    $this->sc_long,
-    $this->sc_token);
+  // 
+  // forecast_cache(
+  //   $this->sc_lat,
+  //   $this->sc_long,
+  //   $this->sc_token);
 }
 // END class SC_Dark_Weather_Get

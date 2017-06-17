@@ -22,7 +22,7 @@
 
 // Requirements
 require_once 'sc_dark_weather_functions.php';
-require_once 'SC_Dark_Weather_Data.inc';
+require_once 'SCDW_Data.inc';
 
 // Create the class
 class SCDW_Check
@@ -95,7 +95,12 @@ class SCDW_Check
        // create forecast.json
       $toCreate .= 'Creating forecast.json<br>';
       $sc_create = new SCDW_Data( $sc_token, $sc_lat, $sc_long );
-      
+      $sc_forecast = $sc_create->forecast_cache(
+          $this->sc_lat,
+          $this->sc_long,
+          $this->sc_token);
+
+
     }
     if ( $checked == 2 || $checked == 3 )
     {
