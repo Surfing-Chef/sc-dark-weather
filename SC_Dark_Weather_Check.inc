@@ -60,13 +60,14 @@ class SC_Dark_Weather_Check
       $checkedArray[0] = $sc_token;
     } else {
       array_push( $errors,'token' );
-      $checkedArray[0] = $sc_token_default;
+      $checkedArray[0] = $d_token;
     }
 
   // Check latitude
     if( !is_numeric( $sc_lat ) )
     {
       array_push( $errors, 'lat');
+      $checkedArray[0] = $d_lat;
     } else
     {
       $checkedArray[1] = $sc_lat;
@@ -76,6 +77,7 @@ class SC_Dark_Weather_Check
     if( !is_numeric( $sc_long ) )
     {
       array_push( $errors, 'long');
+      $checkedArray[0] = $d_long;
     } else
     {
       $checkedArray[2] = $sc_long;
