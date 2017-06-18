@@ -55,34 +55,7 @@ class SCDW_Check
       }
     }
     // What needs creating?
-    return $create; // 0 : none, 1:forecast.json, 2:args.php, 3:both
+    // empty:none, 1:forecast.json, 2:args.php, 3:both
+    return $create;
   }
-
-  function createFiles( $checked )
-  {
-    $toCreate = '';
-    // Checked 1:forecast.json, 2:args.php, 3:both
-    if( $checked == 1 || $checked == 3 )
-    {
-       // create forecast.json
-      $toCreate .= 'Creating forecast.json<br>';
-      $sc_create = new SCDW_Data( $sc_token, $sc_lat, $sc_long );
-      $sc_forecast = $sc_create->forecast_cache(
-          $this->sc_lat,
-          $this->sc_long,
-          $this->sc_token);
-
-
-    }
-    if ( $checked == 2 || $checked == 3 )
-    {
-      // create args.php
-      $toCreate .= 'Creating args.php<br>';
-    }
-
-    $return = $toCreate;
-
-    return $return;
-  }
-
 }
