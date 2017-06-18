@@ -7,4 +7,4 @@ REM -----
 REM IMPORTANT!!  CHANGE THE PATH TO REFLECT THE MACHINE
 REM -----
 cd C:\wamp64\www\Bourbon-WP\wp-content\plugins\sc-dark-weather\
-php -f sc_dark_weather_get.php
+php -f sc_forecast_json_update.php
