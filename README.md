@@ -24,26 +24,26 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.5.0  
 > > Creates classes that build the forecast to be displayed to users  
-> > 1.5.1 *Classifies* files:
+> > 1.5.1 File descriptions:
 
-__SC_Dark_Weather_Filter:__ Basis for Check and Compare classes   
+__SCDW_Check:__ `class` - checks if both *forecast.json* and *arg.php* exist, and if *forecast.json* needs updating  
 
-__SC_Dark_Weather_Check:__ Extends __SC_Dark_Weather_Filter:__ and checks arguments before passing them to __Compare__  
+__SCDW_Data:__ `class` - gets Darksky data and writes it to forecast.json.
+Also writes token, latitude and longitude data to *forecast.json* for *update.php* to read.
 
-__SC_Dark_Weather_Compare:__ Extends __SC_Dark_Weather_Filter:__ and compares options set in the options panel to the ones being called for use in __Display__  
+__SCDW_Display:__ `class` - displays the Dark Sky weather forecast from data stored in the *forecast.json* file as HTML output  
 
-__SC_Dark_Weather_Json_Forecast:__ creates a cache file for __Display__ to read from  
+_sc_dark_weather.php:_ `php` - main plugin file  
 
-__SC_Dark_Weather_Json_Args:__ creates a cache file for *update.php* to read from   
+_sc_dark_weather_functions.php:_ `php` - contains utility functions   
 
-__SC_Dark_Weather_Display:__ displays the Dark Sky weather forecast from data stored in the *forecast.json* file  
+_update.php:_ `php` - file called from outside the scope of WordPress to update the forecast - ie cronjob, scheduled task  
 
-_sc_dark_weather.php:_ main plugin file  
+_forecast.json_ `json` - container file for data pulled from Darksky.net  
 
-_sc_dark_weather_functions:_ contains utility functions   
+_args.php_ `php` - container file for arguments required outside the scope of WordPress   
 
-_update.php:_ file called from outside the scope of WordPress to update the forecast - ie cronjob, scheduled task  
-
-_forecast.json_ container file for data pulled from Darksky.net  
-
-_args.json_ container file for arguments required outside the scope of WordPress  
+### __REMEMBER__ ###
+- create a widget area in site header for shortcode  
+- check user input when options being entered  
+- populate *args.php* when setting options in plugin  
