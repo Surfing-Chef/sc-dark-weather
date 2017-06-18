@@ -241,7 +241,7 @@ function sc_test_sc()
   $sc_check = new SCDW_Check();
 
   // Check if forecast.json and args.php exist and
-  // if the require creating or updating
+  // if the file requires creating or updating
   $sc_check->sc_json = $sc_json;
   $sc_check->sc_php = $sc_php;
 
