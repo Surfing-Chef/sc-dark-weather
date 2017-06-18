@@ -4,7 +4,7 @@
  * Checks if both forecast.json and arg.php exist,
  * and if forecast needs updating.
  *
- */
+*/
 
 // Requirements
 require_once 'sc_dark_weather_functions.php';
