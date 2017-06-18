@@ -236,8 +236,11 @@ function sc_test_sc()
   $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
   $sc_php = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
 
-  $args = array( $sc_api, $sc_lat, $sc_long, $sc_json_f, $sc_json_a);
-  $sc_check = new SCDW_Check( $args );
+  $sc_check = new SCDW_Check();
+
+  $sc_check->sc_json = $sc_json;
+  $sc_check->sc_php = $sc_php;
+
 
   // Check files and options
   $checked = $sc_check->checkFiles();
