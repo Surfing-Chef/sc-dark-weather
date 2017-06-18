@@ -233,8 +233,8 @@ function sc_test_sc()
   $sc_api = get_option( 'sc_api' );
   $sc_lat = get_option( 'sc_latitude' );
   $sc_long = get_option( 'sc_longitude' );
-  $sc_json_f = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
-  $sc_json_a = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
+  $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
+  $sc_php = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
 
   $args = array( $sc_api, $sc_lat, $sc_long, $sc_json_f, $sc_json_a);
   $sc_check = new SCDW_Check( $args );
