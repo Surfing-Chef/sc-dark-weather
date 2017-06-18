@@ -224,7 +224,7 @@ function sc_display_weather_sc()
 // End of the function sc_display_weather_sc
 
 // Add a test shortcode to plugin
-function sc_test_sc()
+function sc_display_forecast()
 {
   // Get plugin options
   $sc_api = get_option( 'sc_api' );
@@ -294,10 +294,4 @@ add_action( 'admin_init', 'sc_register_options' );
 add_action( 'admin_init', 'sc_dark_weather_install' );
 
 // Allows this plugin to be used with a shortcode
-add_shortcode( 'scdarkweather', 'sc_dark_weather_sc' );
-
-// Trial shortcode
-add_shortcode( 'sc_dark_weather', 'sc_display_weather_sc' );
-
-// Test shortcode
-add_shortcode( 'sc_test_sc', 'sc_test_sc' );
+add_shortcode( 'sc_dark_weather', 'sc_display_forecast' );
