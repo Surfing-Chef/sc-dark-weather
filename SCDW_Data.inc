@@ -18,12 +18,16 @@ class SCDW_Data
   private $sc_token;
   private $sc_long;
   private $sc_lat;
+  private $sc_json;
+  private $sc_php;
 
-  function SCDW_Data( $sc_token, $sc_lat, $sc_long )
+  function SCDW_Data( $sc_token, $sc_lat, $sc_long, $sc_json, $sc_php  )
   {
     $this->sc_token = $sc_token;
     $this->sc_lat = $sc_lat;
     $this->sc_long = $sc_long;
+    $this->sc_json = $sc_json;
+    $this->sc_php = $sc_php;
   }
 
   // Create a forecast cache file.
