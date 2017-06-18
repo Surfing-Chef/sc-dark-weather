@@ -3,9 +3,7 @@
  *
  * Contains various utility functions
  *
- */
-
-// Requirements
+*/
 
 // Constants
 define( 'SCWEATHER_PLUGIN_URL', plugins_url()."/sc-dark-weather/" );
