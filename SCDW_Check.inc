@@ -1,23 +1,9 @@
 <?php
 /**
  *
- * Checks arguments before passing them to SC_Dark_Weather_Compare
+ * Checks if both forecast.json and arg.php exist,
+ * and if forecast needs updating.
  *
- * @param    $args      =   array(  string token,
- *                                  string lat,
- *                                  string long,
- *                                  string json_forecast,
- *                                  string json_args,
- *                                )
- * @return   $checked   =   array(  string  api,
- *                                  string lat,
- *                                  string long,
- *                                  string json_forecast,
- *                                  string json_args,
- *                                  array  update ( boolean,
- *                                                  string   item to update
- *                                                )
- *                                )
  */
 
 // Requirements
