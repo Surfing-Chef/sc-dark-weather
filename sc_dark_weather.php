@@ -14,10 +14,14 @@ Text Domain: sc-dark-weather
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 
 // Import required files and classes
-require 'sc_dark_weather_check.inc';
-require 'sc_dark_weather_compare.inc';
-require 'sc_dark_weather_display.inc';
-require 'SCDW_Check.inc';
+// require_once 'sc_dark_weather_check.inc';
+// require_once 'sc_dark_weather_compare.inc';
+// require_once 'sc_dark_weather_display.inc';
+require_once 'SCDW_Check.inc';
+// class.Forecast
+require_once 'vendor/autoload.php';
+// Import Forecast namespace
+use Forecast\Forecast;
 
 // Sets up all of the default options for all the variables needed
 function sc_dark_weather_install()
