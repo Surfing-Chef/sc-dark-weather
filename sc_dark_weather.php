@@ -15,14 +15,9 @@
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 
 // Import required files and classes
-// require_once 'sc_dark_weather_check.inc';
-// require_once 'sc_dark_weather_compare.inc';
-// require_once 'sc_dark_weather_display.inc';
 require_once 'SCDW_Check.inc';
-// class.Forecast
-require_once 'vendor/autoload.php';
-// Import Forecast namespace
-use Forecast\Forecast;
+require_once 'SCDW_Data.inc';
+require_once 'SCDW_Display.inc';
 
 // Sets up all of the default options for all the variables needed
 function sc_dark_weather_install()
