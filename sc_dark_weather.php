@@ -261,6 +261,9 @@ function sc_display_forecast()
     $options = $args_php->build_args_php();
   }
 
+  // Display forecast
+  $sc_display = new SCDW_Display();
+  echo $sc_display->sc_weather_output();
 };
 // End of the function sc_test_sc
 
