@@ -230,14 +230,18 @@ function sc_display_weather_sc()
 // Add a test shortcode to plugin
 function sc_test_sc()
 {
+  // Get plugin options
   $sc_api = get_option( 'sc_api' );
   $sc_lat = get_option( 'sc_latitude' );
   $sc_long = get_option( 'sc_longitude' );
   $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
   $sc_php = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
 
+  // Instantiate a new SCDW_Data object
   $sc_check = new SCDW_Check();
 
+  // Check if forecast.json and args.php exist and
+  // if the require creating or updating
   $sc_check->sc_json = $sc_json;
   $sc_check->sc_php = $sc_php;
 
