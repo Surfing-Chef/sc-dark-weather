@@ -22,35 +22,30 @@ class SCDW_Check
   function checkFiles()
   {
     // Check forecast.json
-    if( file_exists( $this->sc_json_f ) )
+    if( file_exists( $this->sc_json ) )
     {
-      $age = time() - filemtime( $this->sc_json_f );
+      $age = time() - filemtime( $this->sc_json );
       if ($age > 60*30)
       {
-        echo 'Forecast.json exists but needs updating.<br><br>';
-      }
-      else
-      {
-        // all is good
-        echo 'Forecast.json exists and is recent.<br><br>';
+        // update forecast.json
+        $create = 1;
       }
     } else
     {
-      echo 'Forecast.json does not exist and needs creating.<br><br>';
+      // create forecast.json
       $create = 1;
     }
 
     // Check args.json
-    if( file_exists( $this->sc_json_a) )
+    if( !file_exists( $this->sc_php) )
     {
-      echo 'Args.php exists.<br><br>';
-    } else
-    {
-      echo 'Args.php does not exist and needs creating.<br><br>';
+      // and forecast.json exists
       if ($create < 1)
       {
+        // create args.php only
         $create = 2;
       } else {
+        // create both forecast.json and args.php
         $create = 3;
       }
     }
