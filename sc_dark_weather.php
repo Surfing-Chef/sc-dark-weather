@@ -261,22 +261,6 @@ function sc_display_forecast()
     $options = $args_php->build_args_php();
   }
 
-  // COMPARES and updates when required
-  // $sc_compare = new SC_Dark_Weather_Compare( $checked );
-  // $ready = $sc_compare->sc_compare();
-  // if ( $ready[5][0] != 0 )
-  // {
-  //   var_dump( $sc_compare->sc_compare() );
-  //   echo 'Fix' . $ready[5][1];
-  // } else {
-  //   var_dump( $sc_compare->sc_compare() );
-  //   echo '<h4>Load this compared object as an array into SC_Dark_Weather_Display</h4><br><br>';
-  // }
-  //
-  // DISPLAY CHECKed and COMPAREd forecast
-  // $sc_output = new SC_Dark_Weather_Display( $ready );
-  // echo '<h3>Displayed by SC_Dark_Weather_Display class</h3>';
-  // echo $sc_output->sc_weather_output();
 };
 // End of the function sc_test_sc
 
