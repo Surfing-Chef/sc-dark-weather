@@ -1,10 +1,10 @@
 <?php
-/*
-  Description: Get Darksky data and write to forecast.json
+/**
+ *
+ * Get Darksky data and write to forecast.json
+ * Write data to forecast.json
+ *
 */
-
-// API
-//require_once 'api.php';
 
 // Composer dependencies
 require_once 'vendor/autoload.php';
