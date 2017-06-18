@@ -13,25 +13,11 @@ require_once 'SCDW_Data.inc';
 // Create the class
 class SCDW_Check
 {
-  private $sc_token;
-  private $sc_lat;
-  private $sc_long;
-  private $sc_json_f;
-  private $sc_json_a;
-
-  function SCDW_Check( $args )
-  {
-    $this->sc_token = $args[0];
-    $this->sc_lat = $args[1];
-    $this->sc_long = $args[2];
-    $this->sc_json_f = $args[3];
-    $this->sc_json_a = $args[4];
-  }
-
-  function createForecast()
-  {
-    echo 'Create forecast.json.<br><br>';
-  }
+  public $sc_token;
+  public $sc_lat;
+  public $sc_long;
+  public $sc_json;
+  public $sc_php;
 
   function checkFiles()
   {
