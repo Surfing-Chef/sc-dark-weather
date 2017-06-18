@@ -31,7 +31,8 @@ class SCDW_Data
   }
 
   // Create a forecast cache file.
-  function forecast_cache ( $lat, $long, $token ){
+  private function forecast_cache ( $lat, $long, $token )
+  {
      // Instantiate a new Forecast object
      $forecast = new Forecast( $token );
 
@@ -46,15 +47,40 @@ class SCDW_Data
        )
      ));
 
-     // Store json string to file
-    $fp = fopen( 'forecast.json', 'w' );
+     return $options;
+  }
+
+  public function build_forecast_json()
+  {
+    $options = $this->forecast_cache( $this->sc_lat, $this->sc_long, $this->sc_token );
+
+    // Store json string to file
+    $fp = fopen( $this->sc_json, 'w' );
     fwrite( $fp, $options );
     fclose( $fp );
   }
-  // 
-  // forecast_cache(
-  //   $this->sc_lat,
-  //   $this->sc_long,
-  //   $this->sc_token);
+
+  private function args_cache ( $lat, $long, $token )
+  {
+    $options = '<?php '
+                . '$token = \'' . $token . '\'; '
+                . '$lat = \'' . $lat . '\'; '
+                . '$long = \'' . $long . '\'; '
+                . '?>';
+
+     return $options;
+  }
+
+  public function build_args_php()
+  {
+    $options = $this->args_cache( $this->sc_lat, $this->sc_long, $this->sc_token );
+
+    // Store json string to file
+    $fp = fopen( $this->sc_php, 'w' );
+    fwrite( $fp, $options );
+    fclose( $fp );
+  }
+
 }
+
 // END class SC_Dark_Weather_Get
