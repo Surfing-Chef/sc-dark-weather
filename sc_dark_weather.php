@@ -245,32 +245,25 @@ function sc_test_sc()
   $sc_check->sc_json = $sc_json;
   $sc_check->sc_php = $sc_php;
 
-
   // Check files and options
   $checked = $sc_check->checkFiles();
 
-  // Create necessary files
-  $create = $sc_check->createFiles( $checked );
-  echo $create;
-  // if ( empty($checked[5]) )
-  // {
-  //   var_dump( $sc_check->sc_check() );
-  //   echo '<h3>This object has been checked</h3>';
-  //   echo '<p>The token, latutude and longitude have been filtered are are valid. ';
-  //   echo 'And the forecast.json file exists.</p>';
-  // } else {
-  //   // update
-  //   foreach ($checked[5] as $key => $value) {
-  //     if($value == 'json_f'){
-  //       $fix = 'No forecast.json file exists.';
-  //     } elseif ($value == 'json_a'){
-  //       $fix = 'No args.json file exists.';
-  //     }
-  //
-  //     echo $fix . '<br>';
-  //   }
-  //
-  // }
+  // File forecast.json doesn't exist or needs updating
+  if ( $checked == 1 || $checked == 3 )
+  {
+    // Instantiate a new SCDW_Data object
+    $forecast_json = new SCDW_Data( $sc_api, $sc_lat, $sc_long, $sc_json, $sc_php );
+
+    // Create or update file
+    $options = $forecast_json->build_forecast_json();
+  }
+  // File args.php doesn't exist
+  elseif ( $checked == 2)
+  {
+    $args_php = new SCDW_Data( $sc_api, $sc_lat, $sc_long, $sc_php, $sc_php );
+
+    $options = $args_php->build_args_php();
+  }
 
   // COMPARES and updates when required
   // $sc_compare = new SC_Dark_Weather_Compare( $checked );
