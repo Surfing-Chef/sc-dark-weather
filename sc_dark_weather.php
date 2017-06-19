@@ -233,19 +233,6 @@ function sc_display_forecast()
   $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
   $sc_php = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
 
-  // Instantiate a new SCDW_Data object
-  $sc_check = new SCDW_Check();
-
-  // Check if forecast.json and args.php exist and
-  // if the file requires creating or updating
-  $sc_check->sc_json = $sc_json;
-  $sc_check->sc_php = $sc_php;
-
-  // Check files and options
-  $checked = $sc_check->checkFiles();
-
-  // File forecast.json doesn't exist or needs updating
-  if ( $checked == 1 || $checked == 3 )
   // Test url
   $echo = '<br><h3>';
   $echo .= 'Check your secret key entered in the plugin settings';
@@ -281,23 +268,43 @@ function sc_display_forecast()
 
   if( check_url( $sc_api, $sc_lat, $sc_long ) == 0)
   {
-    // Instantiate a new SCDW_Data object
-    $forecast_json = new SCDW_Data( $sc_api, $sc_lat, $sc_long, $sc_json, $sc_php );
-
-    // Create or update file
-    $options = $forecast_json->build_forecast_json();
+    $checked_url = 1;
+    echo $echo;
   }
-  // File args.php doesn't exist
-  elseif ( $checked == 2)
+  else
   {
-    $args_php = new SCDW_Data( $sc_api, $sc_lat, $sc_long, $sc_php, $sc_php );
+    // Instantiate a new SCDW_Data object
+    $sc_check = new SCDW_Check();
 
-    $options = $args_php->build_args_php();
+    // Check if forecast.json and args.php exist and
+    // if the file requires creating or updating
+    $sc_check->sc_json = $sc_json;
+    $sc_check->sc_php = $sc_php;
+
+    // Check files and options
+    $checked = $sc_check->checkFiles();
+
+    // File forecast.json doesn't exist or needs updating
+    if ( $checked == 1 || $checked == 3 )
+    {
+      // Instantiate a new SCDW_Data object
+      $forecast_json = new SCDW_Data( $sc_api, $sc_lat, $sc_long, $sc_json, $sc_php );
+
+      // Create or update file
+      $options = $forecast_json->build_forecast_json();
+    }
+    // File args.php doesn't exist
+    elseif ( $checked == 2)
+    {
+      $args_php = new SCDW_Data( $sc_api, $sc_lat, $sc_long, $sc_php, $sc_php );
+
+      $options = $args_php->build_args_php();
+    }
+
+    // Display forecast
+    $sc_display = new SCDW_Display();
+    echo $sc_display->sc_weather_output($sc_lat, $sc_long);
   }
-
-  // Display forecast
-  $sc_display = new SCDW_Display();
-  echo $sc_display->sc_weather_output();
 };
 // End of the function sc_test_sc
 
