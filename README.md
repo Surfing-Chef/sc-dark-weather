@@ -44,6 +44,6 @@ _forecast.json_ `json` - container file for data pulled from Darksky.net
 _args.php_ `php` - container file for arguments required outside the scope of WordPress   
 
 ### __REMEMBER__ ###
-- create a widget area in site header for shortcode  
+- add text area to header widget area and insert shortcode  
 - check user input when options being entered  
 - populate *args.php* when setting options in plugin  
