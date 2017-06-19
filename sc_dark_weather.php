@@ -246,6 +246,40 @@ function sc_display_forecast()
 
   // File forecast.json doesn't exist or needs updating
   if ( $checked == 1 || $checked == 3 )
+  // Test url
+  $echo = '<br><h3>';
+  $echo .= 'Check your secret key entered in the plugin settings';
+  $echo .= '</h3>';
+  $echo .= '<h3>';
+  $echo .= '<a ';
+  $echo .= 'href = "https://darksky.net/forecast/50.2963,-117.6857/ca12/en" ';
+  $echo .= 'target = "_blank">Or get a secret key from Checkout Darksky.net';
+  $echo .= '</a></h3><br>';
+  $echo .= '<h3>Other useful weather sites: </h3><br>';
+  $echo .= '<ul style = "padding-left: 0; ">';
+
+  $echo .= '<li><a ';
+  $echo .= 'href = "https://www.theweathernetwork.com/ca/weather/british-columbia/nakusp" ';
+  $echo .= 'target = "_blank">The Weather Network';
+  $echo .= '</a></li>';
+
+  $echo .= '<li><a ';
+  $echo .= 'href = "http://www.accuweather.com/en/ca/nakusp/v0g/weather-forecast/52854" ';
+  $echo .= 'target = "_blank">Accuweather';
+  $echo .= '</a></li>';
+
+  $echo .= '<li><a ';
+  $echo .= 'href = "https://www.wunderground.com/q/zmw:00000.1.71216" ';
+  $echo .= 'target = "_blank">Wunderground';
+  $echo .= '</a></li>';
+
+  $echo .= '<li><a ';
+  $echo .= 'href = "https://weather.gc.ca/city/pages/bc-38_metric_e.html" ';
+  $echo .= 'target = "_blank">Environment Canada';
+  $echo .= '</a></li>';
+  $echo .= '</ul>';
+
+  if( check_url( $sc_api, $sc_lat, $sc_long ) == 0)
   {
     // Instantiate a new SCDW_Data object
     $forecast_json = new SCDW_Data( $sc_api, $sc_lat, $sc_long, $sc_json, $sc_php );
