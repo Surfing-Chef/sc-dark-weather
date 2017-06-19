@@ -10,6 +10,23 @@ define( 'SCWEATHER_PLUGIN_URL', plugins_url()."/sc-dark-weather/" );
 
 define( 'SCWEATHER_IMG_URL', plugins_url()."/sc-dark-weather/images/" );
 
+define( 'API_ENDPOINT', 'https://api.darksky.net/forecast/' );
+
+// check if given properties return appropriate data
+function check_url( $sc_api, $sc_lat, $sc_long )
+{
+  $testUrl = API_ENDPOINT . $sc_api . '/' . $sc_lat . ',' . $sc_long;
+
+  $response = @file_get_contents($testUrl);
+
+  if ($response){
+    $returned = 1;
+  } else {
+    $returned = 0;
+  }
+  return $returned;
+}
+
 // Pre-parse forecast cache file.
 function parse_cache($timeFrame=''){
   // Get json string
