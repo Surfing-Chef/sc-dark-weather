@@ -87,7 +87,7 @@ function getDirection($bearing)
 }
 
 // get address
-function googleApiAddress( $lat, $long )
+function google_apis_address( $lat, $long )
 {
   $url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long&sensor=false";
 
