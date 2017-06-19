@@ -28,3 +28,9 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.6.0  
 > > Rebuilds Plugin from a more basic structure using classes developed in 1.5  
+
+### NOTES TO DO: ###
+- import files and classes from *new-widget* and *branch 1.5.1*  
+- implement classes and files into plugin file  
+- be sure to pull changes from github into bourbon-wp theme and plugin folders on other local WordPress development installs  
+- new plugins are admin-style, sc-dark-weather, and new-widget
