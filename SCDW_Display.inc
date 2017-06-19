@@ -14,11 +14,18 @@ class SCDW_Display
 
   function sc_weather_output( $lat, $long )
   {
+    $sc_location = google_apis_address( $lat, $long );
+
+    $sc_tz = parse_cache()['timezone'];
+    $sc_time =  output_cache('currently', 'time');
+    date_default_timezone_set($sc_tz);
+    $sc_timezone = date_default_timezone_get();
+    $sc_updated_last = date( "H:i (T)", $sc_time );
 
     $sc_weather_output = '<section id="sc-forecast" class="container-forecast">';
 
       $sc_weather_output .= '<header class="sc-weather-header">';
-        $sc_weather_output .= '<span>' . google_apis_address( $lat, $long ) . '</span>';
+        $sc_weather_output .= '<span>' . $sc_location . '<span class="sc-weather-updated"> as of '. $sc_updated_last .'</span></span>';
         $sc_weather_output .= '<a href="https://darksky.net/forecast/50.2963,-117.6857/ca12/en" target="_blank">Powered by Dark Sky</a>';
       $sc_weather_output .= '</header>';
 
