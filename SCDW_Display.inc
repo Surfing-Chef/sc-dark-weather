@@ -12,12 +12,13 @@ require_once 'sc_dark_weather_functions.php';
 class SCDW_Display
 {
 
-  function sc_weather_output()
+  function sc_weather_output( $lat, $long )
   {
+
     $sc_weather_output = '<section id="sc-forecast" class="container-forecast">';
 
       $sc_weather_output .= '<header class="sc-weather-header">';
-        $sc_weather_output .= '<span>Weather</span>';
+        $sc_weather_output .= '<span>' . googleApiAddress( $lat, $long ) . '</span>';
         $sc_weather_output .= '<a href="https://darksky.net/forecast/50.2963,-117.6857/ca12/en" target="_blank">Powered by Dark Sky</a>';
       $sc_weather_output .= '</header>';
 
