@@ -28,6 +28,8 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.6.0  
 > > Rebuilds Plugin from a more basic structure using classes developed in 1.5  
+> > > References: [WordPress.org Codex: Creating Options Pages](https://codex.wordpress.org/Creating_Options_Pages)  
+> > > References: [WordPress.org Codex: Administration Menus](https://codex.wordpress.org/Adding_Administration_Menus)  
 
 ### NOTES TO DO: ###
 - import files and classes from *new-widget* and *branch 1.5.1*  
