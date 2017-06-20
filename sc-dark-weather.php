@@ -38,10 +38,18 @@ class SCDW extends WP_Widget {
     // Use of 'before_widget', 'after_widget', 'before_title', and 'after_title' arguments
     // ensures each widget is nested inside the theme-specific HTML tags.
     // The $title filter and injection is optional
-    $title = apply_filters( 'widget_title', $instance[ 'title' ] );
+    $title = apply_filters( 'widget_title', $instance[ 'scdw_title' ] );
     echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title'];
 
     // Place calls to classes and functions that will display the forecast here
+    $token = $instance['scdw_token'];
+    $latitude = $instance['scdw_latitude'];
+    $longitude = $instance['scdw_longitude'];
+
+    echo "<h2>Widget Output</h2>";
+    echo "<ul><li>Token: $token</li>";
+    echo "<li>Latitude: $latitude</li>";
+    echo "<li>Lonitude: $longitude</li></ul>";
 
     // leave this line alone too
     echo $args['after_widget'];
