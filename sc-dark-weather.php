@@ -10,6 +10,8 @@
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: sc-new-widget
 */
+
+// Define the widget class
 class SCDW extends WP_Widget {
 
   // Registers basic widget information
@@ -104,6 +106,7 @@ class SCDW extends WP_Widget {
     return $instance;
   }
 }
+// END :: Define the widget class
 
 // Register the Widget
 function sc_register_dark_weather()
@@ -112,6 +115,7 @@ function sc_register_dark_weather()
   */
   register_widget( 'SCDW' );
 }
+// END ::  Register the Widget
 
 // Tie the registration funcion to WordPress using the widgets_init hook
 add_action( 'widgets_init', 'sc_register_dark_weather' );
