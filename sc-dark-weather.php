@@ -87,7 +87,12 @@ class SCDW extends WP_Widget {
      * return the updated instance.
     */
     $instance = $old_instance;
-    $instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
+
+    $instance[ 'scdw_title' ] = strip_tags( $new_instance[ 'scdw_title' ] );
+    $instance[ 'scdw_token' ] = strip_tags( $new_instance[ 'scdw_token' ] );
+    $instance[ 'scdw_latitude' ] = strip_tags( $new_instance[ 'scdw_latitude' ] );
+    $instance[ 'scdw_longitude' ] = strip_tags( $new_instance[ 'scdw_longitude' ] );
+
     return $instance;
   }
 }
