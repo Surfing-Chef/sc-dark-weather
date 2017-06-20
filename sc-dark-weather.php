@@ -49,7 +49,7 @@ class SCDW extends WP_Widget {
     echo "<h2>Widget Output</h2>";
     echo "<ul><li>Token: $token</li>";
     echo "<li>Latitude: $latitude</li>";
-    echo "<li>Lonitude: $longitude</li></ul>";
+    echo "<li>Longitude: $longitude</li></ul>";
 
     // leave this line alone too
     echo $args['after_widget'];
