@@ -53,10 +53,26 @@ class SCDW extends WP_Widget {
   { /**
      * Check the current instance information to see if the title is empty. If it isn’t, the current title gets displayed.
     */
-    $title = ! empty( $instance['title'] ) ? $instance['title'] : ''; ?>
+    $title = ! empty( $instance['scdw_title'] ) ? $instance['scdw_title'] : '';
+    $token = ! empty( $instance['scdw_token'] ) ? $instance['scdw_token'] : '';
+    $latitude = ! empty( $instance['scdw_latitude'] ) ? $instance['scdw_latitude'] : '';
+    $longitude = ! empty( $instance['scdw_longitude'] ) ? $instance['scdw_longitude'] : ''; ?>
+
     <p>
-      <label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
-      <input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $title ); ?>" />
+      <label for="<?php echo $this->get_field_id( 'scdw_title' ); ?>">Title:</label>
+      <input type="text" id="<?php echo $this->get_field_id( 'scdw_title' ); ?>" name="<?php echo $this->get_field_name( 'scdw_title' ); ?>" value="<?php echo esc_attr( $title ); ?>" />
+    </p>
+    <p>
+      <label for="<?php echo $this->get_field_id( 'scdw_token' ); ?>">Token:</label>
+      <input type="text" id="<?php echo $this->get_field_id( 'scdw_token' ); ?>" name="<?php echo $this->get_field_name( 'scdw_token' ); ?>" value="<?php echo esc_attr( $token ); ?>" />
+    <p>
+    </p>
+      <label for="<?php echo $this->get_field_id( 'scdw_latitude' ); ?>">Latitude:</label>
+      <input type="text" id="<?php echo $this->get_field_id( 'scdw_latitude' ); ?>" name="<?php echo $this->get_field_name( 'scdw_latitude' ); ?>" value="<?php echo esc_attr( $latitude ); ?>" />
+    <p>
+    </p>
+      <label for="<?php echo $this->get_field_id( 'scdw_longitude' ); ?>">Longitude:</label>
+      <input type="text" id="<?php echo $this->get_field_id( 'scdw_longitude' ); ?>" name="<?php echo $this->get_field_name( 'scdw_longitude' ); ?>" value="<?php echo esc_attr( $longitude ); ?>" />
     </p><?php
   }
 
