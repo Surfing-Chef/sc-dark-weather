@@ -123,7 +123,7 @@ add_action( 'widgets_init', 'scdw_register_dark_weather' );
 
 
 /** Define the Settings Page Class */
-class SC_Settings_Page
+class SCDW_Settings_Page
 {
     /**
      * Holds the values to be used in the fields callbacks
@@ -161,15 +161,15 @@ class SC_Settings_Page
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'my_option_name' );
+        $this->options = get_option( 'scdw_option_name' );
         ?>
         <div class="wrap">
             <h1>SC Dark Weather</h1>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
-                settings_fields( 'sc_option_group' );
-                do_settings_sections( 'sc-setting-admin' );
+                settings_fields( 'scdw_option_group' );
+                do_settings_sections( 'scdw-setting-admin' );
                 submit_button();
             ?>
             </form>
@@ -183,8 +183,8 @@ class SC_Settings_Page
     public function page_init()
     {
         register_setting(
-            'sc_option_group', // Option group
-            'my_option_name', // Option name
+            'scdw_option_group', // Option group
+            'scdw_option_name', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
