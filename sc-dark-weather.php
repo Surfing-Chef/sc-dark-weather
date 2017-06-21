@@ -196,18 +196,26 @@ class SCDW_Settings_Page
         );
 
         add_settings_field(
-            'id_number', // ID
-            'ID Number', // Title
-            array( $this, 'id_number_callback' ), // Callback
-            'sc-setting-admin', // Page
+            'scdw_token', // ID
+            'Darksky Token', // Title
+            array( $this, 'token_callback' ), // Callback
+            'scdw-setting-admin', // Page
             'setting_section_id' // Section
         );
 
         add_settings_field(
-            'title',
-            'Title',
-            array( $this, 'title_callback' ),
-            'sc-setting-admin',
+            'scdw_latitude',
+            'Latitude',
+            array( $this, 'latitude_callback' ),
+            'scdw-setting-admin',
+            'setting_section_id'
+        );
+
+        add_settings_field(
+            'scdw_longitude',
+            'Longitude',
+            array( $this, 'longitude_callback' ),
+            'scdw-setting-admin',
             'setting_section_id'
         );
     }
@@ -220,11 +228,14 @@ class SCDW_Settings_Page
     public function sanitize( $input )
     {
         $new_input = array();
-        if( isset( $input['id_number'] ) )
-            $new_input['id_number'] = absint( $input['id_number'] );
+        if( isset( $input['scdw_token'] ) )
+            $new_input['scdw_token'] = absint( $input['scdw_token'] );
 
-        if( isset( $input['title'] ) )
-            $new_input['title'] = sanitize_text_field( $input['title'] );
+        if( isset( $input['scdw_latitude'] ) )
+            $new_input['scdw_latitude'] = sanitize_text_field( $input['scdw_latitude'] );
+
+        if( isset( $input['scdw_longitude'] ) )
+                $new_input['scdw_longitude'] = sanitize_text_field( $input['scdw_longitude'] );
 
         return $new_input;
     }
@@ -240,7 +251,18 @@ class SCDW_Settings_Page
     /**
      * Get the settings option array and print one of its values
      */
-    public function id_number_callback()
+    public function scdw_token_callback()
+    {
+        printf(
+            '<input type="text" id="scdw_token" name="scdw_option_name[scdw_token]" value="%s" />',
+            isset( $this->options['scdw_token'] ) ? esc_attr( $this->options['scdw_token']) : ''
+        );
+    }
+
+    /**
+     * Get the settings option array and print one of its values
+     */
+    public function scdw_latitude_callback()
     {
         printf(
             '<input type="text" id="scdw_latitude" name="scdw_option_name[scdw_latitude]" value="%s" />',
