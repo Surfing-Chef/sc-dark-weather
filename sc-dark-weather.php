@@ -243,22 +243,22 @@ class SCDW_Settings_Page
     public function id_number_callback()
     {
         printf(
-            '<input type="text" id="id_number" name="my_option_name[id_number]" value="%s" />',
-            isset( $this->options['id_number'] ) ? esc_attr( $this->options['id_number']) : ''
+            '<input type="text" id="scdw_latitude" name="scdw_option_name[scdw_latitude]" value="%s" />',
+            isset( $this->options['scdw_latitude'] ) ? esc_attr( $this->options['scdw_latitude']) : ''
         );
     }
 
     /**
      * Get the settings option array and print one of its values
      */
-    public function title_callback()
+    public function scdw_longitude_callback()
     {
         printf(
-            '<input type="text" id="title" name="my_option_name[title]" value="%s" />',
-            isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
+            '<input type="text" id="scdw_longitude" name="scdw_option_name[scdw_longitude]" value="%s" />',
+            isset( $this->options['scdw_longitude'] ) ? esc_attr( $this->options['scdw_longitude']) : ''
         );
     }
 }
 
 if( is_admin() )
-    $my_settings_page = new SC_Settings_Page();?>
+    $my_settings_page = new SCDW_Settings_Page();?>
