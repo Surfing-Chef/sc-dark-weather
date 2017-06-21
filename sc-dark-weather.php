@@ -11,7 +11,7 @@
  * Text Domain: sc-new-widget
 */
 
-// Define the widget class
+/** Define the Widget Class */
 class SCDW extends WP_Widget {
 
   // Registers basic widget information
