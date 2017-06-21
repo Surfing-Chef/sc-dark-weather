@@ -192,7 +192,7 @@ class SCDW_Settings_Page
             'setting_section_id', // ID
             'Plugin Settings', // Title
             array( $this, 'print_section_info' ), // Callback
-            'sc-setting-admin' // Page
+            'scdw-setting-admin' // Page
         );
 
         add_settings_field(
