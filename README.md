@@ -28,8 +28,10 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.6.0  
 > > Rebuilds Plugin from a more basic structure using classes developed in 1.5  
+> > > References: [WPMUDEV: Code Your Own Custom WordPress Widget](https://premium.wpmudev.org/blog/create-custom-wordpress-widget/?imob=c&utm_expid=3606929-106.UePdqd0XSL687behGg-9FA.2&utm_referrer=https%3A%2F%2Fgithub.com%2FSurfing-Chef%2FBourbon-WP)  
 > > > References: [WordPress.org Codex: Creating Options Pages](https://codex.wordpress.org/Creating_Options_Pages)  
 > > > References: [WordPress.org Codex: Administration Menus](https://codex.wordpress.org/Adding_Administration_Menus)  
+> > > References: [WordPress.org Developer: *add_menu_page* function](https://developer.wordpress.org/reference/functions/add_menu_page/)  
 
 ### NOTES TO DO: ###
 - import files and classes from *new-widget* and *branch 1.5.1*  
