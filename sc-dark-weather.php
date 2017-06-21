@@ -106,17 +106,18 @@ class SCDW extends WP_Widget {
     return $instance;
   }
 }
-// END :: Define the widget class
+// END :: Define the Widget Class
 
-// Register the Widget
-function sc_register_dark_weather()
+/** Register the Widget */
+
+function scdw_register_dark_weather()
 { /**
    * specify widget to register using the widget object's name
   */
   register_widget( 'SCDW' );
 }
+// Tie the registration funcion to WordPress using the widgets_init hook
+add_action( 'widgets_init', 'scdw_register_dark_weather' );
+
 // END ::  Register the Widget
 
-// Tie the registration funcion to WordPress using the widgets_init hook
-add_action( 'widgets_init', 'sc_register_dark_weather' );
-?>
