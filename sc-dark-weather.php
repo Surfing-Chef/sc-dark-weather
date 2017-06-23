@@ -56,11 +56,44 @@ class SCDW extends WP_Widget {
     $token = $instance['scdw_token'];
     $latitude = $instance['scdw_latitude'];
     $longitude = $instance['scdw_longitude'];
+    $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
+    $sc_php = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
 
-    echo "<h2>Widget Output</h2>";
-    echo "<ul><li>Token: $token</li>";
-    echo "<li>Latitude: $latitude</li>";
-    echo "<li>Longitude: $longitude</li></ul>";
+    // Check if the options given will return a proper forecast form Darksky
+    // Display default output if options are invalid
+    if( check_url( $token, $latitude, $longitude ) == 0)
+    {
+      $checked_url = 1;
+      echo display_default();
+    }
+    else
+    {
+      // Instantiate a new SCDW_Data object
+      $sc_check = new SCDW_Check();
+      // Check if forecast.json and args.php exist and
+      // if the file requires creating or updating
+      $sc_check->sc_json = $sc_json;
+      $sc_check->sc_php = $sc_php;
+      // Check files and options
+      $checked = $sc_check->checkFiles();
+      // File forecast.json doesn't exist or needs updating
+      if ( $checked == 1 || $checked == 3 )
+      {
+        // Instantiate a new SCDW_Data object
+        $forecast_json = new SCDW_Data( $token, $latitude, $longitude, $sc_json, $sc_php );
+        // Create or update file
+        $options = $forecast_json->build_forecast_json();
+      }
+      // File args.php doesn't exist
+      elseif ( $checked == 2)
+      {
+        $args_php = new SCDW_Data( $token, $latitude, $longitude, $sc_json, $sc_php );
+        $options = $args_php->build_args_php();
+      }
+      // Display forecast
+      $sc_display = new SCDW_Display();
+      echo $sc_display->sc_weather_output($latitude, $longitude);
+    }
 
     // leave this line alone too
     echo $args['after_widget'];
@@ -118,7 +151,6 @@ class SCDW extends WP_Widget {
 // END :: Define the Widget Class
 
 /** Register the Widget */
-
 function scdw_register_dark_weather()
 { /**
    * specify widget to register using the widget object's name
