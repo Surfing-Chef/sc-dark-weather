@@ -13,6 +13,13 @@
 
 // Exit if accessed directly
 defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
+
+// Import required files and classes
+require_once 'scdw_functions.php';
+require_once 'SCDW_Check.inc';
+require_once 'SCDW_Data.inc';
+require_once 'SCDW_Display.inc';
+
 /** Define the Widget Class */
 class SCDW extends WP_Widget {
 
