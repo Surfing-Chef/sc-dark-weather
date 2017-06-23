@@ -229,7 +229,7 @@ class SCDW_Settings_Page
     {
         $new_input = array();
         if( isset( $input['scdw_token'] ) )
-            $new_input['scdw_token'] = absint( $input['scdw_token'] );
+            $new_input['scdw_token'] = sanitize_text_field( $input['scdw_token'] );
 
         if( isset( $input['scdw_latitude'] ) )
             $new_input['scdw_latitude'] = sanitize_text_field( $input['scdw_latitude'] );
