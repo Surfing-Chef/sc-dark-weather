@@ -6,7 +6,7 @@
 */
 
 // Import Functions
-require_once 'sc_dark_weather_functions.php';
+require_once 'scdw_functions.php';
 
 // Create a new class
 class SCDW_Display

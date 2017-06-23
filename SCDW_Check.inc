@@ -7,7 +7,7 @@
 */
 
 // Requirements
-require_once 'sc_dark_weather_functions.php';
+require_once 'scdw_functions.php';
 require_once 'SCDW_Data.inc';
 
 // Create the class
