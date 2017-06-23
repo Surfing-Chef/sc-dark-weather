@@ -56,8 +56,8 @@ class SCDW extends WP_Widget {
     $token = $instance['scdw_token'];
     $latitude = $instance['scdw_latitude'];
     $longitude = $instance['scdw_longitude'];
-    $sc_json = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/forecast.json';
-    $sc_php = $_SERVER['DOCUMENT_ROOT'] .'/Bourbon-WP/wp-content/plugins/sc-dark-weather/args.php';
+    $sc_json = plugin_dir_path( __FILE__) . 'forecast.json';
+    $sc_php = plugin_dir_path( __FILE__) . 'args.php';
 
     // Check if the options given will return a proper forecast form Darksky
     // Display default output if options are invalid
