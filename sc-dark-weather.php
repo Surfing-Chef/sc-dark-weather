@@ -11,6 +11,8 @@
  * Text Domain: sc-new-widget
 */
 
+// Exit if accessed directly
+defined( 'ABSPATH' ) or die( "Error: contact admin@surfing-chef.com" );
 /** Define the Widget Class */
 class SCDW extends WP_Widget {
 
