@@ -251,7 +251,7 @@ class SCDW_Settings_Page
     /**
      * Get the settings option array and print one of its values
      */
-    public function scdw_token_callback()
+    public function token_callback()
     {
         printf(
             '<input type="text" id="scdw_token" name="scdw_option_name[scdw_token]" value="%s" />',
@@ -262,7 +262,7 @@ class SCDW_Settings_Page
     /**
      * Get the settings option array and print one of its values
      */
-    public function scdw_latitude_callback()
+    public function latitude_callback()
     {
         printf(
             '<input type="text" id="scdw_latitude" name="scdw_option_name[scdw_latitude]" value="%s" />',
@@ -273,7 +273,7 @@ class SCDW_Settings_Page
     /**
      * Get the settings option array and print one of its values
      */
-    public function scdw_longitude_callback()
+    public function longitude_callback()
     {
         printf(
             '<input type="text" id="scdw_longitude" name="scdw_option_name[scdw_longitude]" value="%s" />',
