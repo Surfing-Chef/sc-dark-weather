@@ -24,7 +24,6 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 
 > Version: 1.5.0  
 > > Creates classes that build the forecast to be displayed to users  
-> > 1.5.1 File descriptions:
 
 > Version: 1.6.0  
 > > Rebuilds Plugin from a more basic structure using classes developed in 1.5  
@@ -32,6 +31,7 @@ A plugin for WordPress as a wrapper for Dark Sky weather service
 > > > References: [WordPress.org Codex: Creating Options Pages](https://codex.wordpress.org/Creating_Options_Pages)  
 > > > References: [WordPress.org Codex: Administration Menus](https://codex.wordpress.org/Adding_Administration_Menus)  
 > > > References: [WordPress.org Developer: *add_menu_page* function](https://developer.wordpress.org/reference/functions/add_menu_page/)  
+> > 1.6.1 Import and Implement Classes and functions from 1.5.1
 
 ### NOTES TO DO: ###
 - import files and classes from *new-widget* and *branch 1.5.1*  
