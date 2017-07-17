@@ -29,6 +29,8 @@ class SCDW_Display
         $sc_weather_output .= '<a href="https://darksky.net/forecast/50.2963,-117.6857/ca12/en" target="_blank">Powered by Dark Sky</a>';
       $sc_weather_output .= '</header>';
 
+      $sc_weather_output .= '<article class="sc-weather-forecast">';
+
       $sc_weather_output .= '<div class="container-currently">';
 
         $sc_weather_output .= '<article class="container-icon-temp">';
@@ -116,6 +118,9 @@ class SCDW_Display
 
         $sc_weather_output .= '</div>';
         $sc_weather_output .= '<!-- END container-daily -->';
+
+        $sc_weather_output .= '</article>';
+        $sc_weather_output .= '<!-- END sc-weather-forecast -->';
 
 
       $sc_weather_output .= '</section>';
