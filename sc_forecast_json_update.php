@@ -40,3 +40,22 @@ function forecast_cache ( $lat, $long, $token ){
 }
 
 forecast_cache ( $lat, $long, $token );
+
+/* FILEPATHS
+
+/usr/bin/php
+
+/usr/local/bin/php
+
+/usr/local/lib/php
+
+/usr/local/php
+
+File directory is: /home/webmullet01/public_html
+
+/usr/local/bin/php -q /home/webmullet01/public_html/wp-content/plugins/sc-dark-weather/sc_forecast_json_update.php
+
+/usr/bin/php -f /home/webmullet01/public_html/wp-content/plugins/sc-dark-weather/sc_forecast_json_update.php
+/usr/local/bin/php -f /home/webmullet01/public_html/wp-content/plugins/sc-dark-weather/sc_forecast_json_update.php
+
+*/
